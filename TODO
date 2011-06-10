@@ -1,0 +1,14 @@
+TODO
+====
+1. Modul pro aplikaci, ktera:
+   - Umoznuje zadat
+     - Soubor perl modulu
+     - Nebo perl modul
+     - Nazev sekce, implicitne EXAMPLE\d?
+   - Pokud je vice sekci, nabidne vyber sekce
+   - Moznost vypsat priklad
+   - Moznosti spustit priklad.
+2.
+
+Applied
+=======

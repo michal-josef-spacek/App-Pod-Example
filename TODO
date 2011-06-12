@@ -8,6 +8,8 @@ TODO
    - Pokud je vice sekci, nabidne vyber sekce
    - Moznost vypsat priklad
    - Moznosti spustit priklad.
+   - Odstranit mezery na zacatku radku prikladu. Projit radek po radku a zjistit
+     minimalni pocet mezer a ten odstranit.
 2.
 
 Applied

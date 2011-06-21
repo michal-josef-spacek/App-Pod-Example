@@ -10,14 +10,23 @@ use Getopt::Std;
 
 # Arguments.
 my $opts_hr = {
+	'h' => 0,
+	'p' => 0,
+	'r' => 1,
 	's' => 'EXAMPLE',
 };
-if (@ARGV < 1) {
-	print STDERR "Usage: $0 [-s section] pod_file\n";
+if (! getopts('hprs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'}) {
+	print STDERR "Usage: $0 [-p] [-r] [-s section] pod_file\n";
+	print STDERR "\t-h\t\tHelp.\n";
+	print STDERR "\t-p\t\tPrint example.\n";
+	print STDERR "\t-r\t\tRun example (default on).\n";
 	print STDERR "\t-s section\tUse section (default EXAMPLE).\n";
 	exit 1;
 }
 my $pod_file = $ARGV[0];
 
 # Run.
-App::Pod::Example->new->run($pod_file, $opts_hr->{'s'});
+App::Pod::Example->new(
+	'print' => $opts_hr->{'p'},
+	'run' => $opts_hr->{'r'},
+)->run($pod_file, $opts_hr->{'s'});

@@ -38,7 +38,7 @@ sub new {
 sub run {
 	my ($self, $file, $section) = @_;
 	my $pod_abstract = Pod::Abstract->load_file($file);
-	my $code = _get_content($pod_abstract, $section);
+	my ($code) = _get_content($pod_abstract, $section);
 	if ($self->{'print'}) {
 		print $code."\n";
 	}
@@ -58,7 +58,7 @@ sub _get_content {
 	my ($pod_abstract, $section) = @_;
 	my @sections = $pod_abstract->select('/head1[@heading =~ {'.
 		$section.'\d*}]');
-	my $ret;
+	my @ret;
 	foreach my $section (@sections) {
 
 		# Remove #cut.
@@ -68,10 +68,40 @@ sub _get_content {
 		}
 
 		# Get pod.
-		# XXX
-		$ret .= $section->pod;
+		my @child = $section->children;
+		push @ret, _remove_spaces($child[0]->pod);
 	}
-	return $ret;
+	return @ret;
+}
+
+sub _remove_spaces {
+	my $string = shift;
+	my @lines = split /\n/, $string;
+
+	# Get number of spaces in begin.
+	my $max = 0;
+	foreach my $line (@lines) {
+		if (! length $line) {
+			next;
+		}
+		my $spaces = $line =~ m/^(\ *)/ms;
+		if ($max == 0 || length $spaces < $max) {
+			$max = length $spaces;
+		}
+	}
+
+	# Remove spaces.
+	if ($max > 0) {
+		foreach my $line (@lines) {
+			if (! length $line) {
+				next;
+			}
+			$line = substr $line, $max;
+		}
+	}
+
+	# Return string.
+	return join "\n", @lines;
 }
 
 1;

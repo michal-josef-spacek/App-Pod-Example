@@ -8,6 +8,7 @@ use warnings;
 use Class::Utils qw(set_params);
 use English qw(-no_match_vars);
 use Error::Pure qw(err);
+use Module::Info;
 use Pod::Abstract;
 
 # Version.
@@ -36,21 +37,42 @@ sub new {
 
 # Run.
 sub run {
-	my ($self, $file, $section) = @_;
+	my ($self, $file_or_module, $section) = @_;
+
+	# Module file.
+	my $file;
+	if (-r $file_or_module) {
+		$file = $file_or_module;
+
+	# Module.
+	} else {
+		$file = Module::Info->new_from_module($file_or_module)->file;
+	}
+
+	# Get pod.
 	my $pod_abstract = Pod::Abstract->load_file($file);
+
+	# Get section pod.
 	my ($code) = _get_content($pod_abstract, $section);
+
+	# Print.
 	if ($self->{'print'}) {
 		print $code."\n";
 	}
+
+	# Run.
 	if ($self->{'run'}) {
 		eval $code;	
 		if ($EVAL_ERROR) {
 			err 'Error in eval', 'Eval error', $EVAL_ERROR;
 		}
 	}
+
+	# No action.
 	if (! $self->{'print'} && ! $self->{'run'}) {
 		err 'Cannot process any action.';
 	}
+
 	return;
 }
 
@@ -150,7 +172,7 @@ App::Pod::Example - Base class for pod_example script.
 
 =back
 
-=item C<run($file, $section)>
+=item C<run($file_or_module, $section)>
 
 TODO
 

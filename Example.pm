@@ -39,14 +39,16 @@ sub run {
 	my ($self, $file, $section) = @_;
 	my $pod_abstract = Pod::Abstract->load_file($file);
 	my $code = _get_content($pod_abstract, $section);
+	if ($self->{'print'}) {
+		print $code."\n";
+	}
 	if ($self->{'run'}) {
 		eval $code;	
 		if ($EVAL_ERROR) {
 			err 'Error in eval', 'Eval error', $EVAL_ERROR;
 		}
-	} elsif ($self->{'print'}) {
-		print $code."\n";
-	} else {
+	}
+	if (! $self->{'print'} && ! $self->{'run'}) {
 		err 'Cannot process any action.';
 	}
 	return;

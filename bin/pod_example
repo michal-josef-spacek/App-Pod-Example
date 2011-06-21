@@ -6,6 +6,18 @@ use warnings;
 
 # Modules.
 use App::Pod::Example;
+use Getopt::Std;
+
+# Arguments.
+my $opts_hr = {
+	's' => 'EXAMPLE',
+};
+if (@ARGV < 1) {
+	print STDERR "Usage: $0 [-s section] pod_file\n";
+	print STDERR "\t-s section\tUse section (default EXAMPLE).\n";
+	exit 1;
+}
+my $pod_file = $ARGV[0];
 
 # Run.
-App::Pod::Example->new->run;
+App::Pod::Example->new->run($pod_file, $opts_hr->{'s'});

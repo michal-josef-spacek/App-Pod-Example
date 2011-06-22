@@ -12,14 +12,16 @@ use Getopt::Std;
 my $opts_hr = {
 	'h' => 0,
 	'p' => 0,
-	'r' => 1,
+	'r' => 0,
 	's' => 'EXAMPLE',
 };
-if (! getopts('hprs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'}) {
+if (! getopts('hprs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'} 
+	|| (! $opts_hr->{'p'} && ! $opts_hr->{'r'})) {
+
 	print STDERR "Usage: $0 [-p] [-r] [-s section] pod_file_or_module\n";
 	print STDERR "\t-h\t\tHelp.\n";
 	print STDERR "\t-p\t\tPrint example.\n";
-	print STDERR "\t-r\t\tRun example (default on).\n";
+	print STDERR "\t-r\t\tRun example.\n";
 	print STDERR "\t-s section\tUse section (default EXAMPLE).\n";
 	exit 1;
 }

@@ -16,7 +16,7 @@ my $opts_hr = {
 	's' => 'EXAMPLE',
 };
 if (! getopts('hprs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'}) {
-	print STDERR "Usage: $0 [-p] [-r] [-s section] pod_file\n";
+	print STDERR "Usage: $0 [-p] [-r] [-s section] pod_file_or_module\n";
 	print STDERR "\t-h\t\tHelp.\n";
 	print STDERR "\t-p\t\tPrint example.\n";
 	print STDERR "\t-r\t\tRun example (default on).\n";

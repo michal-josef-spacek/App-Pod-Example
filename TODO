@@ -14,6 +14,7 @@ TODO
 3. Proc nefunguje pod_example -p -s EXAMPLES Text::Stripper ?
 4. Algoritmus odstraneni opakujicich se mezer presunout do nejakeho Text::*
    modulu.
+   Text::Outdent - otestovat muj algoritmus oproti tomuto.
 5.
 
 Applied

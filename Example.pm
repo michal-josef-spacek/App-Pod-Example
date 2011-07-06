@@ -225,7 +225,7 @@ TODO
 
  # Run.
  # TODO
- App::Pod::Example->new->run();
+ App::Pod::Example->new->run;
 
 =head1 DEPENDENCIES
 

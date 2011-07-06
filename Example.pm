@@ -14,6 +14,8 @@ use Readonly;
 
 # Constants.
 Readonly::Scalar my $DASH => q{-};
+Readonly::Scalar my $HASH => q{#};
+Readonly::Scalar my $SPACE => q{ };
 
 # Version.
 our $VERSION = 0.01;
@@ -91,9 +93,9 @@ sub run {
 
 sub _debug {
 	my $text = shift;
-	print $DASH x 80, "\n";
-	print $text."\n";
-	print $DASH x 80, "\n";
+	print $HASH, $DASH x 80, "\n";
+	print $HASH, $SPACE, $text."\n";
+	print $HASH, $DASH x 80, "\n";
 	return;
 }
 

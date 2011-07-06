@@ -40,6 +40,11 @@ sub new {
 	# Process params.
 	set_params($self, @params);
 
+	# No action.
+	if (! $self->{'print'} && ! $self->{'run'}) {
+		err 'Cannot process any action.';
+	}
+
 	# Object.
 	return $self;
 }
@@ -81,11 +86,6 @@ sub run {
 		if ($EVAL_ERROR) {
 			print "Cannot process example rigth, because die.\n";
 		}
-	}
-
-	# No action.
-	if (! $self->{'print'} && ! $self->{'run'}) {
-		err 'Cannot process any action.';
 	}
 
 	return;

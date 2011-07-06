@@ -230,6 +230,7 @@ TODO
 L<Class::Utils(3pm)>,
 L<English(3pm)>,
 L<Error::Pure(3pm)>,
+L<Module::Info(3pm)>,
 L<Pod::Abstract(3pm)>,
 L<Readonly(3pm)>.
 

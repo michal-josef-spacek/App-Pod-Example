@@ -10,6 +10,10 @@ use English qw(-no_match_vars);
 use Error::Pure qw(err);
 use Module::Info;
 use Pod::Abstract;
+use Readonly;
+
+# Constants.
+Readonly::Scalar my $DASH => q{-};
 
 # Version.
 our $VERSION = 0.01;
@@ -18,6 +22,9 @@ our $VERSION = 0.01;
 sub new {
 	my ($class, @params) = @_;
 	my $self = bless {}, $class;
+
+	# Debug.
+	$self->{'debug'} = 1;
 
 	# Interactive.
 	$self->{'interactive'} = 0;
@@ -57,11 +64,17 @@ sub run {
 
 	# Print.
 	if ($self->{'print'}) {
+		if ($self->{'debug'}) {
+			_debug('Example source');
+		}
 		print $code."\n";
 	}
 
 	# Run.
 	if ($self->{'run'}) {
+		if ($self->{'debug'}) {
+			_debug('Example output');
+		}
 		eval $code;	
 		if ($EVAL_ERROR) {
 			err 'Error in eval', 'Eval error', $EVAL_ERROR;
@@ -73,6 +86,14 @@ sub run {
 		err 'Cannot process any action.';
 	}
 
+	return;
+}
+
+sub _debug {
+	my $text = shift;
+	print $DASH x 80, "\n";
+	print $text."\n";
+	print $DASH x 80, "\n";
 	return;
 }
 
@@ -155,6 +176,11 @@ App::Pod::Example - Base class for pod_example script.
 
 =over 8
 
+=item * C<debug>
+
+ Debug flag.
+ Default value is 1.
+
 =item * C<interactive>
 
  TODO
@@ -204,7 +230,8 @@ TODO
 L<Class::Utils(3pm)>,
 L<English(3pm)>,
 L<Error::Pure(3pm)>,
-L<Pod::Abstract(3pm)>.
+L<Pod::Abstract(3pm)>,
+L<Readonly(3pm)>.
 
 =head1 SEE ALSO
 

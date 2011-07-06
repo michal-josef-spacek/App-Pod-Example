@@ -79,7 +79,7 @@ sub run {
 		}
 		eval $code;	
 		if ($EVAL_ERROR) {
-			err 'Error in eval', 'Eval error', $EVAL_ERROR;
+			err 'Error in eval.', 'Eval error', $EVAL_ERROR;
 		}
 	}
 
@@ -212,7 +212,9 @@ App::Pod::Example - Base class for pod_example script.
 =head1 ERRORS
 
  Mine:
-         TODO
+         Cannot process any action.
+         Error in eval.
+                 Eval error, $EVAL_ERROR
 
  From Class::Utils::set_params():
          Unknown parameter '%s'.

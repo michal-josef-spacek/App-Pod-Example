@@ -79,7 +79,7 @@ sub run {
 		}
 		eval $code;	
 		if ($EVAL_ERROR) {
-			err 'Error in eval.', 'Eval error', $EVAL_ERROR;
+			print "Cannot process example rigth, because die.\n";
 		}
 	}
 
@@ -101,6 +101,13 @@ sub _debug {
 
 sub _get_content {
 	my ($pod_abstract, $section) = @_;
+
+	# Default section.
+	if (! $section) {
+		$section = 'EXAMPLE';
+	}
+
+	# Get all sections.
 	my @sections = $pod_abstract->select('/head1[@heading =~ {'.
 		$section.'\d*}]');
 	my @ret;
@@ -205,7 +212,7 @@ App::Pod::Example - Base class for pod_example script.
 
  Run method.
  $file_or_module - File with pod doc or perl module.
- $section - Pod section with example.
+ $section - Pod section with example. Default value is 'EXAMPLE'.
 
 =back
 
@@ -213,8 +220,6 @@ App::Pod::Example - Base class for pod_example script.
 
  Mine:
          Cannot process any action.
-         Error in eval.
-                 Eval error, $EVAL_ERROR
 
  From Class::Utils::set_params():
          Unknown parameter '%s'.
@@ -231,6 +236,10 @@ App::Pod::Example - Base class for pod_example script.
  # Run.
  # TODO
  App::Pod::Example->new->run;
+
+=head1 CAVEATS
+
+ Examples with die() cannot process, because returns bad results.
 
 =head1 DEPENDENCIES
 

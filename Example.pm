@@ -166,7 +166,7 @@ App::Pod::Example - Base class for pod_example script.
 
  use App::Pod::Example;
  my $app = App::Pod::Example->new(%parameters);
- $app->run($file, $section);
+ $app->run($file_or_module, $section);
 
 =head1 METHODS
 
@@ -180,29 +180,32 @@ App::Pod::Example - Base class for pod_example script.
 
 =item * C<debug>
 
- Debug flag.
+ Debug flag. It means print debug messages.
  Default value is 1.
 
 =item * C<interactive>
 
- TODO
+ Interactive flag. If set to 0, then use first example.
+ XXX Not used now.
  Default value is 0.
 
 =item * C<print>
 
- TODO
+ Print flag. It means print of example.
  Default value is 0.
 
 =item * C<run>
 
- TODO
+ Run flag. It means run of example.
  Default value is 1.
 
 =back
 
 =item C<run($file_or_module, $section)>
 
-TODO
+ Run method.
+ $file_or_module - File with pod doc or perl module.
+ $section - Pod section with example.
 
 =back
 
@@ -235,10 +238,6 @@ L<Error::Pure(3pm)>,
 L<Module::Info(3pm)>,
 L<Pod::Abstract(3pm)>,
 L<Readonly(3pm)>.
-
-=head1 SEE ALSO
-
-TODO
 
 =head1 AUTHOR
 

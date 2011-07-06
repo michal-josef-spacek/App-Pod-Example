@@ -5,13 +5,13 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use App::Pod::Example;
-use Test::More 'tests' => 3;
+use Test::More 'tests' => 4;
 
 # Test.
 eval {
 	App::Pod::Example->new('');
 };
-is($EVAL_ERROR, "Unknown parameter ''.\n");
+is($EVAL_ERROR, "Unknown parameter ''.\n", 'Bad parameter \'\'.');
 
 # Test.
 eval {
@@ -19,7 +19,17 @@ eval {
 		'something' => 'value',
 	);
 };
-is($EVAL_ERROR, "Unknown parameter 'something'.\n");
+is($EVAL_ERROR, "Unknown parameter 'something'.\n",
+	'Bad parameter \'something\'.');
+
+# Test.
+eval {
+	App::Pod::Example->new(
+		'print' => 0,
+		'run' => 0,
+	);
+};
+is($EVAL_ERROR, "Cannot process any action.\n", 'No action.');
 
 # Test.
 my $obj = App::Pod::Example->new;

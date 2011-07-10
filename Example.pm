@@ -51,7 +51,7 @@ sub new {
 
 # Run.
 sub run {
-	my ($self, $file_or_module, $section) = @_;
+	my ($self, $file_or_module, $section, $number_of_example) = @_;
 
 	# Module file.
 	my $file;
@@ -67,7 +67,7 @@ sub run {
 	my $pod_abstract = Pod::Abstract->load_file($file);
 
 	# Get section pod.
-	my ($code) = _get_content($pod_abstract, $section);
+	my ($code) = _get_content($pod_abstract, $section, $number_of_example);
 
 	# Print.
 	if ($self->{'print'}) {
@@ -100,16 +100,25 @@ sub _debug {
 }
 
 sub _get_content {
-	my ($pod_abstract, $section) = @_;
+	my ($pod_abstract, $section, $number_of_example) = @_;
 
 	# Default section.
 	if (! $section) {
 		$section = 'EXAMPLE';
 	}
 
+	# Concerete number of example.
+	if ($number_of_example) {
+		$section .= $number_of_example;
+
+	# Number of example as potential number.
+	} else {
+		$section .= '\d*';
+	}
+
 	# Get all sections.
 	my @sections = $pod_abstract->select('/head1[@heading =~ {'.
-		$section.'\d*}]');
+		$section.'}]');
 	my @ret;
 	foreach my $section (@sections) {
 
@@ -208,11 +217,12 @@ App::Pod::Example - Base class for pod_example script.
 
 =back
 
-=item C<run($file_or_module, $section)>
+=item C<run($file_or_module, $section, $number_of_example)>
 
  Run method.
  $file_or_module - File with pod doc or perl module.
  $section - Pod section with example. Default value is 'EXAMPLE'.
+ $number_of_example - Number of example. Default value is 1.
 
 =back
 

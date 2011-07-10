@@ -12,16 +12,18 @@ use Getopt::Std;
 my $opts_hr = {
 	'd' => 1,
 	'h' => 0,
+	'n' => 1,
 	'p' => 0,
 	'r' => 0,
 	's' => 'EXAMPLE',
 };
-if (! getopts('d:hprs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'} 
+if (! getopts('d:hn:prs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'} 
 	|| (! $opts_hr->{'p'} && ! $opts_hr->{'r'})) {
 
-	print STDERR "Usage: $0 [-d flag] [-p] [-r] [-s section] pod_file_or_module\n";
+	print STDERR "Usage: $0 [-d flag] [-h] [-n number] [-p] [-r] [-s section] pod_file_or_module\n";
 	print STDERR "\t-d flag\t\tTurn debug (0/1) (default is 1).\n";
 	print STDERR "\t-h\t\tHelp.\n";
+	print STDERR "\t-n number\t\tNumber of example (default is 1).\n";
 	print STDERR "\t-p\t\tPrint example.\n";
 	print STDERR "\t-r\t\tRun example.\n";
 	print STDERR "\t-s section\tUse section (default EXAMPLE).\n";
@@ -34,4 +36,4 @@ App::Pod::Example->new(
 	'debug' => $opts_hr->{'d'},
 	'print' => $opts_hr->{'p'},
 	'run' => $opts_hr->{'r'},
-)->run($pod_file, $opts_hr->{'s'});
+)->run($pod_file, $opts_hr->{'s'}, $opts_hr->{'n'});

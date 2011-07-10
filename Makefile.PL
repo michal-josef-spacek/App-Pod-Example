@@ -27,8 +27,8 @@ WriteMakefile(
 		'Class::Utils' => 0.01,
 		'English' => 0,
 		'Error::Pure' => 0.01,
-		'Module::Info' => 0,
-		'Pod::Abstract' => 0,
+		'Pod::Example' => 0.01,
+		'Readonly' => 0,
 	},
 	'VERSION' => '0.01',
 	'test' => {

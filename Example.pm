@@ -8,8 +8,7 @@ use warnings;
 use Class::Utils qw(set_params);
 use English qw(-no_match_vars);
 use Error::Pure qw(err);
-use Module::Info;
-use Pod::Abstract;
+use Pod::Example qw(get);
 use Readonly;
 
 # Constants.
@@ -53,21 +52,8 @@ sub new {
 sub run {
 	my ($self, $file_or_module, $section, $number_of_example) = @_;
 
-	# Module file.
-	my $file;
-	if (-r $file_or_module) {
-		$file = $file_or_module;
-
-	# Module.
-	} else {
-		$file = Module::Info->new_from_module($file_or_module)->file;
-	}
-
-	# Get pod.
-	my $pod_abstract = Pod::Abstract->load_file($file);
-
-	# Get section pod.
-	my ($code) = _get_content($pod_abstract, $section, $number_of_example);
+	# Get example code.
+	my $code = get($file_or_module, $section, $number_of_example);
 
 	# Print.
 	if ($self->{'print'}) {
@@ -97,72 +83,6 @@ sub _debug {
 	print $HASH, $SPACE, $text."\n";
 	print $HASH, $DASH x 80, "\n";
 	return;
-}
-
-sub _get_content {
-	my ($pod_abstract, $section, $number_of_example) = @_;
-
-	# Default section.
-	if (! $section) {
-		$section = 'EXAMPLE';
-	}
-
-	# Concerete number of example.
-	if ($number_of_example) {
-		$section .= $number_of_example;
-
-	# Number of example as potential number.
-	} else {
-		$section .= '\d*';
-	}
-
-	# Get all sections.
-	my @sections = $pod_abstract->select('/head1[@heading =~ {'.
-		$section.'}]');
-	my @ret;
-	foreach my $section (@sections) {
-
-		# Remove #cut.
-		my @cut = $section->select("//#cut");
-		foreach my $cut (@cut) {
-			$cut->detach;
-		}
-
-		# Get pod.
-		my @child = $section->children;
-		push @ret, _remove_spaces($child[0]->pod);
-	}
-	return @ret;
-}
-
-sub _remove_spaces {
-	my $string = shift;
-	my @lines = split /\n/, $string;
-
-	# Get number of spaces in begin.
-	my $max = 0;
-	foreach my $line (@lines) {
-		if (! length $line) {
-			next;
-		}
-		my $spaces = $line =~ m/^(\ *)/ms;
-		if ($max == 0 || length $spaces < $max) {
-			$max = length $spaces;
-		}
-	}
-
-	# Remove spaces.
-	if ($max > 0) {
-		foreach my $line (@lines) {
-			if (! length $line) {
-				next;
-			}
-			$line = substr $line, $max;
-		}
-	}
-
-	# Return string.
-	return join "\n", @lines;
 }
 
 1;
@@ -256,8 +176,7 @@ App::Pod::Example - Base class for pod_example script.
 L<Class::Utils(3pm)>,
 L<English(3pm)>,
 L<Error::Pure(3pm)>,
-L<Module::Info(3pm)>,
-L<Pod::Abstract(3pm)>,
+L<Pod::Example(3pm)>,
 L<Readonly(3pm)>.
 
 =head1 AUTHOR

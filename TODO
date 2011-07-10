@@ -17,7 +17,8 @@ TODO
    Text::Outdent - otestovat muj algoritmus oproti tomuto.
 5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
 6. Jak odstranit redefine pro test s err?
-7.
+7. Presunout vlastni kod do Pod::Example.
+8.
 
 Applied
 =======

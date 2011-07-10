@@ -12,7 +12,7 @@ use Getopt::Std;
 my $opts_hr = {
 	'd' => 1,
 	'h' => 0,
-	'n' => 1,
+	'n' => undef,
 	'p' => 0,
 	'r' => 0,
 	's' => 'EXAMPLE',
@@ -23,7 +23,7 @@ if (! getopts('d:hn:prs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'}
 	print STDERR "Usage: $0 [-d flag] [-h] [-n number] [-p] [-r] [-s section] pod_file_or_module\n";
 	print STDERR "\t-d flag\t\tTurn debug (0/1) (default is 1).\n";
 	print STDERR "\t-h\t\tHelp.\n";
-	print STDERR "\t-n number\t\tNumber of example (default is 1).\n";
+	print STDERR "\t-n number\t\tNumber of example (default is nothing).\n";
 	print STDERR "\t-p\t\tPrint example.\n";
 	print STDERR "\t-r\t\tRun example.\n";
 	print STDERR "\t-s section\tUse section (default EXAMPLE).\n";

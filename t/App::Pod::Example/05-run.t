@@ -6,7 +6,7 @@ use warnings;
 use App::Pod::Example;
 use English qw(-no_match_vars);
 use File::Object;
-use Test::More 'tests' => 4;
+use Test::More 'tests' => 7;
 use Test::Output;
 
 # Modules dir.
@@ -78,4 +78,52 @@ stdout_is(
 	},
 	$right_ret,
 	'Example with Error::Pure::Die::err().',
+);
+
+# Test.
+$right_ret = <<'END';
+#--------------------------------------------------------------------------------
+# Example output
+#--------------------------------------------------------------------------------
+Foo.
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex5.pm')->s);
+		return;
+	},
+	$right_ret,
+	'Example as EXAMPLE1.',
+);
+
+# Test.
+$right_ret = <<'END';
+#--------------------------------------------------------------------------------
+# Example output
+#--------------------------------------------------------------------------------
+Foo.
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex5.pm')->s, 1);
+		return;
+	},
+	$right_ret,
+	'Example as EXAMPLE1 with explicit example number.',
+);
+
+# Test.
+$right_ret = <<'END';
+#--------------------------------------------------------------------------------
+# Example output
+#--------------------------------------------------------------------------------
+Bar.
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex5.pm')->s, 2);
+		return;
+	},
+	$right_ret,
+	'Example EXAMPLE2 with explicit example number.',
 );

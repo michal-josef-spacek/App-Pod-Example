@@ -55,6 +55,12 @@ sub run {
 	# Get example code.
 	my $code = get($file_or_module, $section, $number_of_example);
 
+	# No code.
+	if (! defined $code) {
+		print "No code\n";
+		return;
+	}
+
 	# Print.
 	if ($self->{'print'}) {
 		if ($self->{'debug'}) {

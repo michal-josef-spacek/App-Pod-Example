@@ -12,9 +12,6 @@ TODO
      minimalni pocet mezer a ten odstranit.
 2. Proc nefunguje pod_example -r -s SYNOPSIS Text::Scraper ?
 3. Proc nefunguje pod_example -p -s EXAMPLES Text::Stripper ?
-4. Algoritmus odstraneni opakujicich se mezer presunout do nejakeho Text::*
-   modulu.
-   Text::Outdent - otestovat muj algoritmus oproti tomuto.
 5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
 6. Jak odstranit redefine pro test s err?
 7. Presunout vlastni kod do Pod::Example.
@@ -22,3 +19,9 @@ TODO
 
 Applied
 =======
+
+4. Algoritmus odstraneni opakujicich se mezer presunout do nejakeho Text::*
+   modulu.
+   Text::Outdent - otestovat muj algoritmus oproti tomuto.
+Přesunuto do Pod::Example.
+NONE [20110710] skim

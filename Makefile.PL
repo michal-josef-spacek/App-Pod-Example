@@ -22,6 +22,7 @@ WriteMakefile(
 	'EXE_FILES' => [
 		'bin/pod_example',
 	],
+	'LICENSE' => 'bsd',
 	'NAME' => 'App::Pod::Example',
 	'PREREQ_PM' => {
 		'Class::Utils' => 0.01,

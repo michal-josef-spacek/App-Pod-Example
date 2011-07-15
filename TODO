@@ -1,7 +1,6 @@
 TODO
 ====
 2. Proc nefunguje pod_example -r -s SYNOPSIS Text::Scraper ?
-3. Proc nefunguje pod_example -p -s EXAMPLES Text::Stripper ?
 5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
 6. Jak odstranit redefine pro test s err?
 8. Implementovat 'interactive' flag?
@@ -29,4 +28,7 @@ OK [20110710] skim
    - Odstranit mezery na zacatku radku prikladu. Projit radek po radku a zjistit
      minimalni pocet mezer a ten odstranit.
 First version.
+OK [20110715] skim
+
+3. Proc nefunguje pod_example -p -s EXAMPLES Text::Stripper ?
 OK [20110715] skim

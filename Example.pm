@@ -161,8 +161,10 @@ App::Pod::Example - Base class for pod_example script.
  use App::Pod::Example;
 
  # Run.
- # TODO
- App::Pod::Example->new->run;
+ App::Pod::Example->new(
+         'print' => 1,
+         'run' => 1,
+ )->run('Pod::Example');
 
 =head1 CAVEATS
 

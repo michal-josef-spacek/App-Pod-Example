@@ -13,6 +13,7 @@ inc/Module/Install/WriteAll.pm
 Makefile.PL
 MANIFEST			This list of files
 META.yml
+README
 t/App-Pod-Example/00-use.t
 t/App-Pod-Example/01-version.t
 t/App-Pod-Example/02-pod_coverage.t

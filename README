@@ -1,0 +1,75 @@
+NAME
+    App::Pod::Example - Base class for pod_example script.
+
+SYNOPSIS
+     use App::Pod::Example;
+     my $app = App::Pod::Example->new(%parameters);
+     $app->run($file_or_module, $section);
+
+METHODS
+    "new(%parameters)"
+             Constructor.
+
+            *       "debug"
+
+                     Debug flag. It means print debug messages.
+                     Default value is 1.
+
+            *       "print"
+
+                     Print flag. It means print of example.
+                     Default value is 0.
+
+            *       "run"
+
+                     Run flag. It means run of example.
+                     Default value is 1.
+
+    "run($file_or_module, $section, $number_of_example)"
+             Run method.
+             $file_or_module - File with pod doc or perl module.
+             $section - Pod section with example. Default value is 'EXAMPLE'.
+             $number_of_example - Number of example. Default value is 1.
+
+ERRORS
+     Mine:
+             Cannot process any action.
+
+     From Class::Utils::set_params():
+             Unknown parameter '%s'.
+
+EXAMPLE
+     # Pragmas.
+     use strict;
+     use warnings;
+
+     # Modules.
+     use App::Pod::Example;
+
+     # Run.
+     App::Pod::Example->new(
+             'print' => 1,
+             'run' => 1,
+     )->run('Pod::Example');
+
+CAVEATS
+    Examples with die() cannot process, because returns bad results.
+
+DEPENDENCIES
+    Class::Utils(3pm), English(3pm), Error::Pure(3pm), Pod::Example(3pm),
+    Readonly(3pm).
+
+REPOSITORY
+    <https://github.com/tupinek/App-pod-Example>
+
+AUTHOR
+    Michal Špaček <mailto:skim@cpan.org>
+
+    <http://skim.cz>
+
+LICENSE AND COPYRIGHT
+    BSD license.
+
+VERSION
+    0.01
+

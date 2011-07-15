@@ -14,7 +14,8 @@ TODO
 3. Proc nefunguje pod_example -p -s EXAMPLES Text::Stripper ?
 5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
 6. Jak odstranit redefine pro test s err?
-8.
+8. Implementovat 'interactive' flag?
+9.
 
 Applied
 =======

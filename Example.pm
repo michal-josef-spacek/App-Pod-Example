@@ -27,9 +27,6 @@ sub new {
 	# Debug.
 	$self->{'debug'} = 1;
 
-	# Interactive.
-	$self->{'interactive'} = 0;
-
 	# Print.
 	$self->{'print'} = 0;
 
@@ -124,12 +121,6 @@ App::Pod::Example - Base class for pod_example script.
 
  Debug flag. It means print debug messages.
  Default value is 1.
-
-=item * C<interactive>
-
- Interactive flag. If set to 0, then use first example.
- XXX Not used now.
- Default value is 0.
 
 =item * C<print>
 

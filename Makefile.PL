@@ -3,36 +3,32 @@ use strict;
 use warnings;
 
 # Modules.
-use ExtUtils::MakeMaker;
+use inc::Module::Install;
 
 # Definition.
-WriteMakefile(
-	'AUTHOR' => 'Michal Špaček <skim@cpan.org>',
-	'BUILD_REQUIRES' => {
-		'English' => 0,
-		'File::Object' => 0,
-		'Test::More' => 0,
-		'Test::Output' => 0,
-		'Test::Pod' => 0,
-		'Test::Pod::Coverage' => 0,
-	},
-	'CONFIGURE_REQUIRES' => {
-		'ExtUtils::MakeMaker' => 0,
-	},
-	'EXE_FILES' => [
-		'bin/pod_example',
-	],
-	'LICENSE' => 'bsd',
-	'NAME' => 'App::Pod::Example',
-	'PREREQ_PM' => {
-		'Class::Utils' => 0.01,
-		'English' => 0,
-		'Error::Pure' => 0.01,
-		'Pod::Example' => 0.01,
-		'Readonly' => 0,
-	},
-	'VERSION' => '0.01',
-	'test' => {
-		'TESTS' => 't/App::Pod::Example/*.t',
-	},
-);
+abstract 'Base class for pod_example script.';
+author 'Michal Špaček <skim@cpan.org>';
+install_script 'bin/pod_example';
+license 'bsd';
+name 'App-pod-Example';
+requires 'Class::Utils' => 0.01;
+requires 'English' => 0;
+requires 'Error::Pure' => 0.01;
+requires 'Pod::Example' => 0.01;
+requires 'Readonly' => 0;
+resources 'repository' => {
+	'url' => 'git://github.com/tupinek/App-pod-Example',
+	'web' => 'https://github.com/tupinek/App-pod-Example',
+	'type' => 'git',
+};
+test_requires 'English' => 0;
+test_requires 'File::Object' => 0.01;
+test_requires 'Test::More' => 0;
+test_requires 'Test::Output' => 0;
+test_requires 'Test::Pod' => 0;
+test_requires 'Test::Pod::Coverage' => 0;
+tests_recursive;
+version '0.01';
+
+# Run.
+WriteAll();

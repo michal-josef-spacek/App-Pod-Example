@@ -35,4 +35,4 @@ resources:
     type: git
     url: git://github.com/tupinek/App-pod-Example
     web: https://github.com/tupinek/App-pod-Example
-version: 0.01
+version: 0.02

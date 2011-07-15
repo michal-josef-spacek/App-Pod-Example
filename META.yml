@@ -18,7 +18,7 @@ license: bsd
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
-name: App-pod-Example
+name: App-Pod-Example
 no_index:
   directory:
     - inc

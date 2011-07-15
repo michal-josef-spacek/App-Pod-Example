@@ -10,7 +10,7 @@ abstract 'Base class for pod_example script.';
 author 'Michal Špaček <skim@cpan.org>';
 install_script 'bin/pod_example';
 license 'bsd';
-name 'App-pod-Example';
+name 'App-Pod-Example';
 requires 'Class::Utils' => 0.01;
 requires 'English' => 0;
 requires 'Error::Pure' => 0.01;

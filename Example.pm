@@ -168,7 +168,7 @@ App::Pod::Example - Base class for pod_example script.
 
 =head1 CAVEATS
 
- Examples with die() cannot process, because returns bad results.
+Examples with die() cannot process, because returns bad results.
 
 =head1 DEPENDENCIES
 

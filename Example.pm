@@ -185,6 +185,10 @@ L<Error::Pure(3pm)>,
 L<Pod::Example(3pm)>,
 L<Readonly(3pm)>.
 
+=head1 REPOSITORY
+
+L<https://github.com/tupinek/App-pod-Example>
+
 =head1 AUTHOR
 
 Michal Špaček L<mailto:skim@cpan.org>

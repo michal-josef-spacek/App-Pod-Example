@@ -172,11 +172,11 @@ Examples with die() cannot process, because returns bad results.
 
 =head1 DEPENDENCIES
 
-L<Class::Utils(3pm)>,
-L<English(3pm)>,
-L<Error::Pure(3pm)>,
-L<Pod::Example(3pm)>,
-L<Readonly(3pm)>.
+L<Class::Utils>,
+L<English>,
+L<Error::Pure>,
+L<Pod::Example>,
+L<Readonly>.
 
 =head1 REPOSITORY
 

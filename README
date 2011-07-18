@@ -56,8 +56,7 @@ CAVEATS
     Examples with die() cannot process, because returns bad results.
 
 DEPENDENCIES
-    Class::Utils(3pm), English(3pm), Error::Pure(3pm), Pod::Example(3pm),
-    Readonly(3pm).
+    Class::Utils, English, Error::Pure, Pod::Example, Readonly.
 
 REPOSITORY
     <https://github.com/tupinek/App-pod-Example>

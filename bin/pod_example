@@ -39,3 +39,41 @@ App::Pod::Example->new(
 	'print' => $opts_hr->{'p'},
 	'run' => $opts_hr->{'r'},
 )->run($pod_file, $opts_hr->{'s'}, $opts_hr->{'n'});
+
+__END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+pod_example - Script to print or run of example from documentation.
+
+=head1 SYNOPSIS
+
+ pod_example -h
+
+=head1 EXAMPLE
+
+ pod_example -p -r Class::Utils
+
+=head1 REPOSITORY
+
+L<https://github.com/tupinek/App-Pod-Example>
+
+=head1 AUTHOR
+
+Michal Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+BSD license.
+
+=head1 VERSION
+
+0.02
+
+=cut

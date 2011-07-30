@@ -5,7 +5,6 @@ TODO
 6. Jak odstranit redefine pro test s err?
 8. Implementovat 'interactive' flag?
 9. Cover testing.
-10. pod_example man
 11.
 
 Applied
@@ -34,3 +33,6 @@ OK [20110715] skim
 
 3. Proc nefunguje pod_example -p -s EXAMPLES Text::Stripper ?
 OK [20110715] skim
+
+10. pod_example man
+OK [20110730] skim

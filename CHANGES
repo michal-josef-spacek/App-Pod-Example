@@ -1,6 +1,8 @@
 0.02
-- Rewrite 03-pod.t to better version for Perl 5.6.
+- Add doc for pod_example script.
+- Fix git repository.
 - Remove "(3pm)" from pod doc.
+- Rewrite 03-pod.t to better version for Perl 5.6.
 
 0.01 (July 15, 2011)
 - First version.

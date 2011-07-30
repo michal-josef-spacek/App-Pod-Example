@@ -17,8 +17,8 @@ requires 'Error::Pure' => 0.01;
 requires 'Pod::Example' => 0.01;
 requires 'Readonly' => 0;
 resources 'repository' => {
-	'url' => 'git://github.com/tupinek/App-pod-Example',
-	'web' => 'https://github.com/tupinek/App-pod-Example',
+	'url' => 'git://github.com/tupinek/App-Pod-Example',
+	'web' => 'https://github.com/tupinek/App-Pod-Example',
 	'type' => 'git',
 };
 test_requires 'English' => 0;

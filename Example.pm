@@ -180,7 +180,7 @@ L<Readonly>.
 
 =head1 REPOSITORY
 
-L<https://github.com/tupinek/App-pod-Example>
+L<https://github.com/tupinek/App-Pod-Example>
 
 =head1 AUTHOR
 

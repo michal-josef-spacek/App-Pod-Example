@@ -4,6 +4,7 @@
 - Fix help indent in pod_example script.
 - Remove "(3pm)" from pod doc.
 - Rewrite 03-pod.t to better version for Perl 5.6.
+- Rewrite to new version of build system.
 
 0.01 (July 15, 2011)
 - First version.

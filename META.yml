@@ -22,6 +22,7 @@ meta-spec:
 name: App-Pod-Example
 no_index:
   directory:
+    - examples
     - inc
     - t
 requires:

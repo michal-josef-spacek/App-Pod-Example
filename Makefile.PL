@@ -13,7 +13,7 @@ license 'bsd';
 name 'App-Pod-Example';
 requires 'Class::Utils' => 0.01;
 requires 'English' => 0;
-requires 'Error::Pure' => 0.01;
+requires 'Error::Pure' => 0.07;
 requires 'Pod::Example' => 0.01;
 requires 'Readonly' => 0;
 resources 'repository' => {

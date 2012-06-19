@@ -6,6 +6,7 @@
 - Rewrite 03-pod.t to better version for Perl 5.6.
 - Rewrite to new version of build system.
 - Add examples/ directory.
+- Fix Makefile.PL to META 1.4.
 
 0.01 (July 15, 2011)
 - First version.

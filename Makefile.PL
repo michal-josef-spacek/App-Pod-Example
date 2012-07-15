@@ -11,9 +11,9 @@ author 'Michal Špaček <skim@cpan.org>';
 install_script 'bin/pod_example';
 license 'bsd';
 name 'App-Pod-Example';
-requires 'Class::Utils' => 0.01;
+requires 'Class::Utils' => 0.03;
 requires 'English' => 0;
-requires 'Error::Pure' => 0.07;
+requires 'Error::Pure' => 0.08;
 requires 'Pod::Example' => 0.01;
 requires 'Readonly' => 0;
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
@@ -21,7 +21,7 @@ resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 resources 'homepage' => 'https://github.com/tupinek/App-Pod-Example';
 resources 'repository' => 'git://github.com/tupinek/App-Pod-Example';
 test_requires 'English' => 0;
-test_requires 'File::Object' => 0.01;
+test_requires 'File::Object' => 0.04;
 test_requires 'Test::More' => 0;
 test_requires 'Test::Output' => 0;
 test_requires 'Test::Pod' => 0;

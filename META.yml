@@ -5,7 +5,7 @@ author:
 build_requires:
   English: 0
   ExtUtils::MakeMaker: 6.36
-  File::Object: 0.04
+  File::Object: 0.05
   Test::More: 0
   Test::Output: 0
   Test::Pod: 0
@@ -29,7 +29,7 @@ requires:
   Class::Utils: 0.03
   English: 0
   Error::Pure: 0.08
-  Pod::Example: 0.01
+  Pod::Example: 0.03
   Readonly: 0
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=App-Pod-Example

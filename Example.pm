@@ -82,9 +82,9 @@ sub run {
 
 sub _debug {
 	my $text = shift;
-	print $HASH, $DASH x 80, "\n";
+	print $HASH, $DASH x 79, "\n";
 	print $HASH, $SPACE, $text."\n";
-	print $HASH, $DASH x 80, "\n";
+	print $HASH, $DASH x 79, "\n";
 	return;
 }
 

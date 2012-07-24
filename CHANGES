@@ -1,4 +1,5 @@
 0.03
+- Fix length of #-----... to 80 chars.
 
 0.02 (July, 16, 2012)
 - Add doc for pod_example script.

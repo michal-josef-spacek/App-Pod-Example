@@ -6,7 +6,9 @@ TODO
 8. Implementovat 'interactive' flag?
 9. Cover testing.
 11. Implementovat zobrazeni seznamu example sekci.
-12.
+12. Implementovat debug mod, kde budu moci videt chyby pri spatnem eval toho
+    kodu.
+13.
 
 Applied
 =======

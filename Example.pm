@@ -22,6 +22,8 @@ our $VERSION = 0.03;
 # Constructor.
 sub new {
 	my ($class, @params) = @_;
+
+	# Create object.
 	my $self = bless {}, $class;
 
 	# Debug.

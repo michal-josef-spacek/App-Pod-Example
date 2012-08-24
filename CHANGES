@@ -1,8 +1,8 @@
-0.03
+0.03 (August 24, 2012)
 - Fix length of #-----... to 80 chars.
 - Add enumerating of lines.
 
-0.02 (July, 16, 2012)
+0.02 (July 16, 2012)
 - Add doc for pod_example script.
 - Fix git repository.
 - Fix help indent in pod_example script.

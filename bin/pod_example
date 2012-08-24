@@ -12,17 +12,20 @@ use Getopt::Std;
 my $opts_hr = {
 	'd' => 1,
 	'h' => 0,
+	'e' => 0,
 	'n' => undef,
 	'p' => 0,
 	'r' => 0,
 	's' => 'EXAMPLE',
 };
-if (! getopts('d:hn:prs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'} 
+if (! getopts('d:ehn:prs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'} 
 	|| (! $opts_hr->{'p'} && ! $opts_hr->{'r'})) {
 
 	print STDERR "Usage: $0 [-d flag] [-h] [-n number] [-p] [-r] ".
 		"[-s section] pod_file_or_module\n";
 	print STDERR "\t-d flag\t\tTurn debug (0/1) (default is 1).\n";
+	print STDERR "\t-e\t\tEnumerate lines (0/1) (default is 0). ".
+		"Only for print mode.\n";
 	print STDERR "\t-h\t\tHelp.\n";
 	print STDERR "\t-n number\tNumber of example (default is ".
 		"nothing).\n";
@@ -36,6 +39,7 @@ my $pod_file = $ARGV[0];
 # Run.
 App::Pod::Example->new(
 	'debug' => $opts_hr->{'d'},
+	'enumerate' => $opts_hr->{'e'},
 	'print' => $opts_hr->{'p'},
 	'run' => $opts_hr->{'r'},
 )->run($pod_file, $opts_hr->{'s'}, $opts_hr->{'n'});

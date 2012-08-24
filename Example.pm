@@ -29,6 +29,9 @@ sub new {
 	# Debug.
 	$self->{'debug'} = 1;
 
+	# Enumerate lines.
+	$self->{'enumerate'} = 0;
+
 	# Print.
 	$self->{'print'} = 0;
 
@@ -65,7 +68,16 @@ sub run {
 		if ($self->{'debug'}) {
 			_debug('Example source');
 		}
-		print $code."\n";
+		if ($self->{'enumerate'}) {
+			my @lines = split "\n", $code;
+			my $count = 1;
+			foreach my $line (@lines) {
+				print $count.': '.$line."\n";
+				$count++;
+			}
+		} else {
+			print $code."\n";
+		}
 	}
 
 	# Run.

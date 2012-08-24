@@ -136,6 +136,11 @@ App::Pod::Example - Base class for pod_example script.
  Debug flag. It means print debug messages.
  Default value is 1.
 
+=item * C<enumerate>
+
+ Enumerate lines in print output.
+ Default value is 0.
+
 =item * C<print>
 
  Print flag. It means print of example.
@@ -175,6 +180,7 @@ App::Pod::Example - Base class for pod_example script.
 
  # Run.
  App::Pod::Example->new(
+         'enumerate' => 1,
          'print' => 1,
          'run' => 1,
  )->run('Pod::Example');

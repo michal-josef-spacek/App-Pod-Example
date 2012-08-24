@@ -159,11 +159,10 @@ App::Pod::Example - Base class for pod_example script.
 
 =head1 ERRORS
 
- Mine:
+ new():
          Cannot process any action.
-
- From Class::Utils::set_params():
-         Unknown parameter '%s'.
+         From Class::Utils::set_params():
+                 Unknown parameter '%s'.
 
 =head1 EXAMPLE
 

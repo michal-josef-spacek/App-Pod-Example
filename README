@@ -32,11 +32,10 @@ METHODS
              $number_of_example - Number of example. Default value is 1.
 
 ERRORS
-     Mine:
+     new():
              Cannot process any action.
-
-     From Class::Utils::set_params():
-             Unknown parameter '%s'.
+             From Class::Utils::set_params():
+                     Unknown parameter '%s'.
 
 EXAMPLE
      # Pragmas.

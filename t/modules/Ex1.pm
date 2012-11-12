@@ -14,6 +14,6 @@ our $VERSION = 0.01;
  use warnings;
 
  # Print foo.
- print "Foo.\n"; 
+ print "Foo.\n";
 
 =cut

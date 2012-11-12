@@ -59,7 +59,7 @@ sub run {
 
 	# No code.
 	if (! defined $code) {
-		print "No code\n";
+		print "No code.\n";
 		return;
 	}
 

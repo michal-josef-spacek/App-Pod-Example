@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use App::Pod::Example;
-use Test::More 'tests' => 4;
+use Test::More 'tests' => 5;
 
 # Test.
 eval {
@@ -32,5 +32,12 @@ eval {
 is($EVAL_ERROR, "Cannot process any action.\n", 'No action.');
 
 # Test.
-my $obj = App::Pod::Example->new;
+my $obj = App::Pod::Example->new(
+	'print' => 1,
+	'run' => 0,
+);
+isa_ok($obj, 'App::Pod::Example');
+
+# Test.
+$obj = App::Pod::Example->new;
 isa_ok($obj, 'App::Pod::Example');

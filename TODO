@@ -4,7 +4,6 @@ TODO
 5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
 6. Jak odstranit redefine pro test s err?
 8. Implementovat 'interactive' flag?
-9. Cover testing.
 11. Implementovat zobrazeni seznamu example sekci.
 12. Implementovat debug mod, kde budu moci videt chyby pri spatnem eval toho
     kodu.
@@ -39,3 +38,6 @@ OK [20110715] skim
 
 10. pod_example man
 OK [20110730] skim
+
+9. Cover testing.
+OK [20121112] skim

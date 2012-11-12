@@ -6,15 +6,31 @@ use warnings;
 use App::Pod::Example;
 use English qw(-no_match_vars);
 use File::Object;
-use Test::More 'tests' => 7;
+use Test::More 'tests' => 12;
 use Test::Output;
 
 # Modules dir.
 my $modules_dir = File::Object->new->up->dir('modules');
 
 # Test.
-my $obj = App::Pod::Example->new;
+my $obj = App::Pod::Example->new(
+	'debug' => 0,
+);
 my $right_ret = <<'END';
+Foo.
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex1.pm')->s);
+		return;
+	},
+	$right_ret,
+	'Example with simple run().',
+);
+
+# Test.
+$obj = App::Pod::Example->new;
+$right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
 #-------------------------------------------------------------------------------
@@ -26,7 +42,7 @@ stdout_is(
 		return;
 	},
 	$right_ret,
-	'Example with simple print().',
+	'Example with simple run().',
 );
 
 # Test.
@@ -126,4 +142,90 @@ stdout_is(
 	},
 	$right_ret,
 	'Example EXAMPLE2 with explicit example number.',
+);
+
+# Test.
+$obj = App::Pod::Example->new(
+	'print' => 1,
+	'run' => 0,
+);
+$right_ret = <<'END';
+#-------------------------------------------------------------------------------
+# Example source
+#-------------------------------------------------------------------------------
+# Pragmas.
+use strict;
+use warnings;
+
+# Print foo.
+print "Foo.\n";
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex1.pm')->s);
+		return;
+	},
+	$right_ret,
+	'Example with simple print().',
+);
+
+# Test.
+$obj = App::Pod::Example->new(
+	'debug' => 0,
+	'print' => 1,
+	'run' => 0,
+);
+$right_ret = <<'END';
+# Pragmas.
+use strict;
+use warnings;
+
+# Print foo.
+print "Foo.\n";
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex1.pm')->s);
+		return;
+	},
+	$right_ret,
+	'Example with simple print() without debug.',
+);
+
+# Test.
+$right_ret = <<'END';
+No code.
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex1.pm')->s, 100);
+		return;
+	},
+	$right_ret,
+	'No code.',
+);
+
+# Test.
+$obj = App::Pod::Example->new(
+	'debug' => 0,
+	'enumerate' => 1,
+	'print' => 1,
+	'run' => 0,
+);
+$right_ret = <<'END';
+1: # Pragmas.
+2: use strict;
+3: use warnings;
+4: 
+5: # Print foo.
+6: print "Foo.\n";
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex1.pm')->s);
+		return;
+	},
+	$right_ret,
+	'Example with simple print() without debug and with '.
+		'enumerating lines.',
 );

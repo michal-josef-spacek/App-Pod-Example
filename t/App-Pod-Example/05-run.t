@@ -34,7 +34,7 @@ $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
 #-------------------------------------------------------------------------------
-Cannot process example rigth, because die.
+Cannot process example right, because die.
 END
 stdout_is(
 	sub {
@@ -53,7 +53,7 @@ $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
 #-------------------------------------------------------------------------------
-Cannot process example rigth, because die.
+Cannot process example right, because die.
 END
 stdout_is(
 	sub {
@@ -69,7 +69,7 @@ $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
 #-------------------------------------------------------------------------------
-Cannot process example rigth, because die.
+Cannot process example right, because die.
 END
 stdout_is(
 	sub {

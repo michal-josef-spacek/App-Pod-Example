@@ -87,7 +87,7 @@ sub run {
 		}
 		eval $code;	
 		if ($EVAL_ERROR) {
-			print "Cannot process example rigth, because die.\n";
+			print "Cannot process example right, because die.\n";
 		}
 	}
 

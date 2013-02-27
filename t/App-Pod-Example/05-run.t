@@ -6,7 +6,8 @@ use warnings;
 use App::Pod::Example;
 use English qw(-no_match_vars);
 use File::Object;
-use Test::More 'tests' => 12;
+use Test::More 'tests' => 13;
+use Test::NoWarnings;
 use Test::Output;
 
 # Modules dir.

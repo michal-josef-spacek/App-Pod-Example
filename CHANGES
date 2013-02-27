@@ -1,4 +1,5 @@
 0.05
+- Add Test::NoWarnings to tests.
 - Fix help (add -e option to possible arguments).
 - Improve help to 80 chars per line.
 

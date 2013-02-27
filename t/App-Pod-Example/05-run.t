@@ -6,8 +6,9 @@ use warnings;
 use App::Pod::Example;
 use English qw(-no_match_vars);
 use File::Object;
-use Test::More 'tests' => 13;
+use Test::More 'tests' => 14;
 use Test::NoWarnings;
+use Test::Warn;
 use Test::Output;
 
 # Modules dir.
@@ -88,6 +89,8 @@ $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 Cannot process example right, because die.
 END
+warning_like { $obj->run($modules_dir->file('Ex4.pm')->s); }
+	qr(Subroutine App::Pod::Example::err redefined at);
 stdout_is(
 	sub {
 		$obj->run($modules_dir->file('Ex4.pm')->s);

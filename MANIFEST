@@ -1,5 +1,5 @@
 bin/pod_example
-CHANGES
+Changes
 Example.pm
 examples/ex1.pl
 inc/Module/Install.pm

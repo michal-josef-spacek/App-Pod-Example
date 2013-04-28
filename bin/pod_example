@@ -65,7 +65,45 @@ pod_example - Script to print or run of example from documentation.
 
 =head1 SYNOPSIS
 
- pod_example -h
+ pod_example [-d flag] [-e] [-h] [-n number] [-p] [-r] [-s section] [--version] pod_file_or_module
+
+=head1 ARGUMENTS
+
+=over 8
+
+=item * C<-d flag>
+
+Turn debug (0/1) (default is 1).
+
+=item * C<-e>
+
+Enumerate lines. Only for print mode.
+
+=item * C<-h>
+
+Print help.
+
+=item * C<-n number>
+
+Number of example (default is nothing).
+
+=item * C<-p>
+
+Print example.
+
+=item * C<-r>
+
+Run example.
+
+=item * C<-s section>
+
+Use section (default EXAMPLE).
+
+=item * C<--version>
+
+Print version of script.
+
+=back
 
 =head1 EXAMPLE
 

@@ -1,4 +1,4 @@
-0.05
+0.05 (April 28, 2013)
 - Add Test::NoWarnings to tests.
 - Add Test::Warn for one test.
 - Fix help (add -e option to possible arguments).

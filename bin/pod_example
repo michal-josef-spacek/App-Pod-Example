@@ -8,6 +8,9 @@ use warnings;
 use App::Pod::Example;
 use Getopt::Std;
 
+# Version.
+our $VERSION = 0.06;
+
 # Arguments.
 my $opts_hr = {
 	'd' => 1,
@@ -22,7 +25,7 @@ if (! getopts('d:ehn:prs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'}
 	|| (! $opts_hr->{'p'} && ! $opts_hr->{'r'})) {
 
 	print STDERR "Usage: $0 [-d flag] [-e] [-h] [-n number] [-p] [-r]\n".
-		"\t[-s section] pod_file_or_module\n\n";
+		"\t[-s section] [--version] pod_file_or_module\n\n";
 	print STDERR "\t-d flag\t\tTurn debug (0/1) (default is 1).\n";
 	print STDERR "\t-e\t\tEnumerate lines. Only for print mode.\n";
 	print STDERR "\t-h\t\tHelp.\n";
@@ -31,6 +34,7 @@ if (! getopts('d:ehn:prs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'}
 	print STDERR "\t-p\t\tPrint example.\n";
 	print STDERR "\t-r\t\tRun example.\n";
 	print STDERR "\t-s section\tUse section (default EXAMPLE).\n";
+	print STDERR "\t--version\tPrint version.\n";
 	exit 1;
 }
 my $pod_file = $ARGV[0];
@@ -42,6 +46,12 @@ App::Pod::Example->new(
 	'print' => $opts_hr->{'p'},
 	'run' => $opts_hr->{'r'},
 )->run($pod_file, $opts_hr->{'s'}, $opts_hr->{'n'});
+
+# Print version.
+sub VERSION_MESSAGE {
+	print $VERSION."\n";
+	exit;
+}
 
 __END__
 

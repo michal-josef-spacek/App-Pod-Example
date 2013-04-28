@@ -1,4 +1,5 @@
 0.06
+- Add version to pod_example script.
 
 0.05 (April 28, 2013)
 - Add Test::NoWarnings to tests.

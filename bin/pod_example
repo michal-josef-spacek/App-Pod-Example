@@ -50,7 +50,7 @@ App::Pod::Example->new(
 # Print version.
 sub VERSION_MESSAGE {
 	print $VERSION."\n";
-	exit;
+	exit 0;
 }
 
 __END__

@@ -7,7 +7,10 @@ TODO
 11. Implementovat zobrazeni seznamu example sekci.
 12. Implementovat debug mod, kde budu moci videt chyby pri spatnem eval toho
     kodu.
-13.
+13. Opravit problematicky test.
+    http://matrix.cpantesters.org/?dist=App-Pod-Example+0.05
+14. Stash pop
+15.
 
 Applied
 =======

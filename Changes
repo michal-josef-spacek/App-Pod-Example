@@ -1,34 +1,35 @@
 0.07
-- Add LICENSE.
+ - Add LICENSE.
+ - Rewrite Changes file to CPAN::Changes::SPEC format.
 
-0.06 (May 06, 2013)
-- Add version to pod_example script.
-- Comment problematic test.
-- Improve man page.
+0.06 2013-05-06
+ - Add version to pod_example script.
+ - Comment problematic test.
+ - Improve man page.
 
-0.05 (April 28, 2013)
-- Add Test::NoWarnings to tests.
-- Add Test::Warn for one test.
-- Fix help (add -e option to possible arguments).
-- Improve help to 80 chars per line.
+0.05 2013-04-28
+ - Add Test::NoWarnings to tests.
+ - Add Test::Warn for one test.
+ - Fix help (add -e option to possible arguments).
+ - Improve help to 80 chars per line.
 
-0.04 (November 12, 2012)
-- Fix rigth word to right.
-- Improve cover testing.
+0.04 2012-11-12
+ - Fix rigth word to right.
+ - Improve cover testing.
 
-0.03 (August 24, 2012)
-- Fix length of #-----... to 80 chars.
-- Add enumerating of lines.
+0.03 2012-08-24
+ - Fix length of #-----... to 80 chars.
+ - Add enumerating of lines.
 
-0.02 (July 16, 2012)
-- Add doc for pod_example script.
-- Fix git repository.
-- Fix help indent in pod_example script.
-- Remove "(3pm)" from pod doc.
-- Rewrite 03-pod.t to better version for Perl 5.6.
-- Rewrite to new version of build system.
-- Add examples/ directory.
-- Fix Makefile.PL to META 1.4.
+0.02 2012-07-16
+ - Add doc for pod_example script.
+ - Fix git repository.
+ - Fix help indent in pod_example script.
+ - Remove "(3pm)" from pod doc.
+ - Rewrite 03-pod.t to better version for Perl 5.6.
+ - Rewrite to new version of build system.
+ - Add examples/ directory.
+ - Fix Makefile.PL to META 1.4.
 
-0.01 (July 15, 2011)
-- First version.
+0.01 2011-07-15
+ - First version.

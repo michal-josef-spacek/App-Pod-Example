@@ -6,7 +6,7 @@ use warnings;
 use App::Pod::Example;
 use English qw(-no_match_vars);
 use File::Object;
-use Test::More 'tests' => 12;
+use Test::More 'tests' => 13;
 use Test::NoWarnings;
 use Test::Warn;
 use Test::Output;
@@ -83,24 +83,20 @@ stdout_is(
 );
 
 # Test.
-# XXX Remove problematic test.
-# http://matrix.cpantesters.org/?dist=App-Pod-Example+0.05
-#$right_ret = <<'END';
-##-------------------------------------------------------------------------------
-## Example output
-##-------------------------------------------------------------------------------
-#Cannot process example right, because die.
-#END
-#warning_like { $obj->run($modules_dir->file('Ex4.pm')->s); }
-#	qr(Subroutine App::Pod::Example::err redefined at);
-#stdout_is(
-#	sub {
-#		$obj->run($modules_dir->file('Ex4.pm')->s);
-#		return;
-#	},
-#	$right_ret,
-#	'Example with Error::Pure::Die::err().',
-#);
+$right_ret = <<'END';
+#-------------------------------------------------------------------------------
+# Example output
+#-------------------------------------------------------------------------------
+Cannot process example right, because die.
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex4.pm')->s);
+		return;
+	},
+	$right_ret,
+	'Example with Error::Pure::Die::err().',
+);
 
 # Test.
 $right_ret = <<'END';

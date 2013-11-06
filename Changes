@@ -1,4 +1,5 @@
 0.08
+ - Fix dependency for Test::Output. Test::Output qw(1.01) is bad.
 
 0.07 2013-09-29
  - Add LICENSE.

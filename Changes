@@ -1,4 +1,5 @@
 0.09
+ - Add minimal Perl version.
 
 0.08 2013-11-06
  - Fix dependency for Test::Output. Test::Output qw(1.01) is bad.

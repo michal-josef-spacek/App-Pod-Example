@@ -1,4 +1,5 @@
 0.09
+ - Add 'readme_from' directive to Makefile.PL.
  - Add minimal Perl version.
  - Rename pod_example to pod-example.
 

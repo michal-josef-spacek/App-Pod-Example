@@ -8,7 +8,7 @@ use inc::Module::Install;
 # Definition.
 abstract 'Base class for pod_example script.';
 author 'Michal Špaček <skim@cpan.org>';
-install_script 'bin/pod_example';
+install_script 'bin/pod-example';
 license 'bsd';
 name 'App-Pod-Example';
 requires 'Class::Utils' => 0.03;

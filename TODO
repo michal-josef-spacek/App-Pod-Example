@@ -1,6 +1,6 @@
 TODO
 ====
-2. Proc nefunguje pod_example -r -s SYNOPSIS Text::Scraper ?
+2. Proc nefunguje pod-example -r -s SYNOPSIS Text::Scraper ?
 5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
 6. Jak odstranit redefine pro test s err?
 Tohle ted snad nebude?
@@ -12,7 +12,6 @@ Tohle ted snad nebude?
     http://matrix.cpantesters.org/?dist=App-Pod-Example+0.05
 Tohle je snad opraveno?
 15. Vstupni argumenty pro priklady?
-16. Prejmenovat pod_example na pod-example.
 17.
 
 Applied
@@ -50,3 +49,6 @@ OK [20121112] skim
 
 14. Stash pop
 OK [20131106] skim
+
+16. Prejmenovat pod_example na pod-example.
+OK [20131108] skim

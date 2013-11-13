@@ -8,6 +8,8 @@ use warnings;
 use Class::Utils qw(set_params);
 use English qw(-no_match_vars);
 use Error::Pure qw(err);
+use File::Temp qw(tempfile);
+use IO::Barf qw(barf);
 use Pod::Example qw(get);
 use Readonly;
 
@@ -85,10 +87,10 @@ sub run {
 		if ($self->{'debug'}) {
 			_debug('Example output');
 		}
-		eval $code;	
-		if ($EVAL_ERROR) {
-			print "Cannot process example right, because die.\n";
-		}
+		my (undef, $tempfile) = tempfile();
+		barf($tempfile, $code);
+		system "$EXECUTABLE_NAME $tempfile";
+		unlink $tempfile;
 	}
 
 	return;
@@ -194,6 +196,8 @@ Examples with die() cannot process, because returns bad results.
 L<Class::Utils>,
 L<English>,
 L<Error::Pure>,
+L<File::Temp>,
+L<IO::Barf>,
 L<Pod::Example>,
 L<Readonly>.
 

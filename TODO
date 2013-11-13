@@ -1,9 +1,5 @@
 TODO
 ====
-2. Proc nefunguje pod-example -r -s SYNOPSIS Text::Scraper ?
-5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
-6. Jak odstranit redefine pro test s err?
-Tohle ted snad nebude?
 8. Implementovat 'interactive' flag?
 11. Implementovat zobrazeni seznamu example sekci.
 12. Implementovat debug mod, kde budu moci videt chyby pri spatnem eval toho
@@ -51,4 +47,15 @@ OK [20121112] skim
 OK [20131106] skim
 
 16. Prejmenovat pod_example na pod-example.
+OK [20131108] skim
+
+2. Proc nefunguje pod-example -r -s SYNOPSIS Text::Scraper ?
+Uz funguje.
+OK [20131108] skim
+
+6. Jak odstranit redefine pro test s err?
+Volam skrz system.
+OK [20131108] skim
+
+5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
 OK [20131108] skim

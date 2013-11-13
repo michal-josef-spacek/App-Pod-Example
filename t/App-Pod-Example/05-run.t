@@ -6,7 +6,8 @@ use warnings;
 use App::Pod::Example;
 use English qw(-no_match_vars);
 use File::Object;
-use Test::More 'tests' => 13;
+use IO::CaptureOutput qw(capture);
+use Test::More 'tests' => 16;
 use Test::NoWarnings;
 use Test::Warn;
 use Test::Output;
@@ -52,51 +53,33 @@ $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
 #-------------------------------------------------------------------------------
-Cannot process example right, because die.
 END
-stdout_is(
-	sub {
-		eval {
-			$obj->run($modules_dir->file('Ex2.pm')->s);
-		};
-		print $EVAL_ERROR;
-		return;
-	},
-	$right_ret,
-	'Example with die().',
-);
+my ($stderr, $stdout);
+capture sub {
+	$obj->run($modules_dir->file('Ex2.pm')->s);
+	return;
+} => \$stdout, \$stderr;
+is($stdout, $right_ret, 'Header on example with die().');
+like($stderr, qr{^Error\. at .* line 6\.$}, 'Example with die().');
 
 # Test.
-$right_ret = <<'END';
-#-------------------------------------------------------------------------------
-# Example output
-#-------------------------------------------------------------------------------
-Cannot process example right, because die.
-END
-stdout_is(
-	sub {
-		$obj->run($modules_dir->file('Ex3.pm')->s);
-		return;
-	},
-	$right_ret,
-	'Example with Carp::croak().',
-);
+($stderr, $stdout) = (undef, undef);
+capture sub {
+	$obj->run($modules_dir->file('Ex3.pm')->s);
+	return;
+} => \$stdout, \$stderr;
+is($stdout, $right_ret, 'Header on example with Carp::croak().');
+like($stderr, qr{^Error\. at .* line 9\.$}, 'Example with Carp::croak().');
 
 # Test.
-$right_ret = <<'END';
-#-------------------------------------------------------------------------------
-# Example output
-#-------------------------------------------------------------------------------
-Cannot process example right, because die.
-END
-stdout_is(
-	sub {
-		$obj->run($modules_dir->file('Ex4.pm')->s);
-		return;
-	},
-	$right_ret,
-	'Example with Error::Pure::Die::err().',
-);
+($stderr, $stdout) = (undef, undef);
+capture sub {
+	$obj->run($modules_dir->file('Ex4.pm')->s);
+	return;
+} => \$stdout, \$stderr;
+is($stdout, $right_ret, 'Header on example with Error::Pure::Die::err().');
+like($stderr, qr{^Error\. at .* line 9\.$},
+	'Example with Error::Pure::Die::err().');
 
 # Test.
 $right_ret = <<'END';

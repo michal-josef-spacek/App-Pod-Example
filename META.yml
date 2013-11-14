@@ -30,7 +30,7 @@ no_index:
 requires:
   Class::Utils: 0.03
   English: 0
-  Error::Pure: 0.08
+  Error::Pure: 0.15
   File::Temp: 0
   IO::Barf: 0.04
   Pod::Example: 0.03

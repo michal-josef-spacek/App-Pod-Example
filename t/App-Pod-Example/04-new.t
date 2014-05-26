@@ -5,6 +5,7 @@ use warnings;
 # Modules.
 use App::Pod::Example;
 use English qw(-no_match_vars);
+use Error::Pure::Utils qw(clean);
 use Test::More 'tests' => 6;
 use Test::NoWarnings;
 
@@ -13,6 +14,7 @@ eval {
 	App::Pod::Example->new('');
 };
 is($EVAL_ERROR, "Unknown parameter ''.\n", 'Bad parameter \'\'.');
+clean();
 
 # Test.
 eval {
@@ -22,6 +24,7 @@ eval {
 };
 is($EVAL_ERROR, "Unknown parameter 'something'.\n",
 	'Bad parameter \'something\'.');
+clean();
 
 # Test.
 eval {
@@ -31,6 +34,7 @@ eval {
 	);
 };
 is($EVAL_ERROR, "Cannot process any action.\n", 'No action.');
+clean();
 
 # Test.
 my $obj = App::Pod::Example->new(

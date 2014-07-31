@@ -7,7 +7,6 @@ TODO
 13. Opravit problematicky test.
     http://matrix.cpantesters.org/?dist=App-Pod-Example+0.05
 Tohle je snad opraveno?
-15. Vstupni argumenty pro priklady?
 17.
 
 Applied
@@ -59,3 +58,6 @@ OK [20131108] skim
 
 5. Priklady spoustet pomoci system? Jinak zasahuji do behu programu.
 OK [20131108] skim
+
+15. Vstupni argumenty pro priklady?
+OK [20140731] skim

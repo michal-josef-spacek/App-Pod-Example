@@ -30,11 +30,12 @@ METHODS
                      Run flag. It means run of example.
                      Default value is 1.
 
-    "run($file_or_module, $section, $number_of_example)"
+    "run($file_or_module, $section, $number_of_example, $args_ar)"
              Run method.
              $file_or_module - File with pod doc or perl module.
              $section - Pod section with example. Default value is 'EXAMPLE'.
              $number_of_example - Number of example. Default value is 1.
+             $args_ar - Reference to array with arguments for 'run' mode.
 
 ERRORS
      new():

@@ -9,7 +9,7 @@ use App::Pod::Example;
 use Getopt::Std;
 
 # Version.
-our $VERSION = 0.06;
+our $VERSION = 0.12;
 
 # Arguments.
 my $opts_hr = {
@@ -126,6 +126,6 @@ BSD license.
 
 =head1 VERSION
 
-0.06
+0.12
 
 =cut

@@ -20,7 +20,7 @@ Readonly::Scalar my $HASH => q{#};
 Readonly::Scalar my $SPACE => q{ };
 
 # Version.
-our $VERSION = 0.12;
+our $VERSION = 0.13;
 
 # Constructor.
 sub new {
@@ -228,6 +228,6 @@ BSD license.
 
 =head1 VERSION
 
-0.12
+0.13
 
 =cut

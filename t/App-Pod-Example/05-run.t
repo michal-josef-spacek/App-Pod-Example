@@ -7,7 +7,7 @@ use App::Pod::Example;
 use English qw(-no_match_vars);
 use File::Object;
 use IO::CaptureOutput qw(capture);
-use Test::More 'tests' => 16;
+use Test::More 'tests' => 19;
 use Test::NoWarnings;
 use Test::Warn;
 use Test::Output;
@@ -127,6 +127,60 @@ stdout_is(
 	},
 	$right_ret,
 	'Example EXAMPLE2 with explicit example number.',
+);
+
+# Test.
+$right_ret = <<'END';
+#-------------------------------------------------------------------------------
+# Example output
+#-------------------------------------------------------------------------------
+Argument #0: 
+Argument #1: 
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex6.pm')->s, 'EXAMPLE', undef,
+			'Foo');
+		return;
+	},
+	$right_ret,
+	'Example Ex6 EXAMPLE with arguments - bad run() calling.',
+);
+
+# Test.
+$right_ret = <<'END';
+#-------------------------------------------------------------------------------
+# Example output
+#-------------------------------------------------------------------------------
+Argument #0: 
+Argument #1: 
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex6.pm')->s, 'EXAMPLE', undef,
+			[]);
+		return;
+	},
+	$right_ret,
+	'Example Ex6 EXAMPLE with arguments - arguments as blank array.',
+);
+
+# Test.
+$right_ret = <<'END';
+#-------------------------------------------------------------------------------
+# Example output
+#-------------------------------------------------------------------------------
+Argument #0: Foo
+Argument #1: Bar
+END
+stdout_is(
+	sub {
+		$obj->run($modules_dir->file('Ex6.pm')->s, 'EXAMPLE', undef,
+			['Foo', 'Bar']);
+		return;
+	},
+	$right_ret,
+	'Example Ex6 EXAMPLE with arguments - two arguments.',
 );
 
 # Test.

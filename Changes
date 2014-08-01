@@ -1,6 +1,7 @@
 0.12
  - Add arguments for run mode.
  - Fix LICENSE file.
+ - Fix run() doc.
  - Update Module::Install to 1.10 version.
 
 0.11 2013-11-15

@@ -1,4 +1,4 @@
-0.12
+0.12 2014-08-01T10:25:58+02:00
  - Add arguments for run mode.
  - Fix LICENSE file.
  - Fix run() doc.

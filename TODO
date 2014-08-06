@@ -7,7 +7,9 @@ TODO
 13. Opravit problematicky test.
     http://matrix.cpantesters.org/?dist=App-Pod-Example+0.05
 Tohle je snad opraveno?
-17.
+17. Kdyz ma priklad argumenty, tak v interaktivnim modu nabidnout vlozeni
+    hodnot. Interaktivni mod by mel byt default.
+18.
 
 Applied
 =======

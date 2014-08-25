@@ -1,4 +1,5 @@
 0.14
+ - Fix arguments on Windows. Arguments cannot be in '', but only in "".
 
 0.13 2014-08-24T04:32:49+02:00
  - Fix arguments with spaces.

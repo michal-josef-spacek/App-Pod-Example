@@ -94,7 +94,7 @@ sub run {
 		if (defined $args_ar && ref $args_ar eq 'ARRAY'
 			&& @{$args_ar}) {
 
-			$args = "'".(join "' '", @{$args_ar})."'";
+			$args = '"'.(join '" "', @{$args_ar}).'"';
 		}
 		system "$EXECUTABLE_NAME $tempfile $args";
 		unlink $tempfile;

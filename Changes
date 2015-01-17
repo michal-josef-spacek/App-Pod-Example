@@ -1,4 +1,6 @@
 0.15
+ - Update Module::Install to 1.14 version.
+ - Update LICENSE AND COPYRIGHT section in doc.
  - Update copyright years.
 
 0.14 2014-08-25T23:00:43+02:00

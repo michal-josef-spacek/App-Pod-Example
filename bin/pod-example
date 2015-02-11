@@ -62,11 +62,11 @@ __END__
 
 =head1 NAME
 
-pod_example - Script to print or run of example from documentation.
+pod-example - Script to print or run of example from documentation.
 
 =head1 SYNOPSIS
 
- pod_example [-d flag] [-e] [-h] [-n number] [-p] [-r] [-s section] [--version] pod_file_or_module [argument ..]
+ pod-example [-d flag] [-e] [-h] [-n number] [-p] [-r] [-s section] [--version] pod_file_or_module [argument ..]
 
 =head1 ARGUMENTS
 
@@ -108,7 +108,7 @@ Print version of script.
 
 =head1 EXAMPLE
 
- pod_example -p -r Class::Utils
+ pod-example -p -r Class::Utils
 
 =head1 REPOSITORY
 

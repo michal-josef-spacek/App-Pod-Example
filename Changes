@@ -1,4 +1,5 @@
 0.15
+ - Fix script name in doc.
  - Update Module::Install to 1.14 version.
  - Update LICENSE AND COPYRIGHT section in doc.
  - Update copyright years.

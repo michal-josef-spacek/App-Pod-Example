@@ -2,4 +2,4 @@ language: perl
 perl:
   - "5.60"
 before_install:
-  - cpanm Class::Utils English Error::Pure File::Temp IO::Barf Pod::Example Readonly
+  - sudo cpanm Class::Utils English Error::Pure File::Temp IO::Barf Pod::Example Readonly

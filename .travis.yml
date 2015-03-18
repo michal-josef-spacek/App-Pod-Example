@@ -1,5 +1,5 @@
 language: perl
 perl:
-  - "5.60"
+  - "5.6.0"
 before_install:
   - sudo cpanm Class::Utils English Error::Pure File::Temp IO::Barf Pod::Example Readonly

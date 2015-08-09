@@ -11,7 +11,7 @@ author 'Michal Spacek <skim@cpan.org>';
 install_script 'bin/pod-example';
 license 'bsd';
 name 'App-Pod-Example';
-readme_from 'Example.pm';
+readme_from 'bin/pod-example';
 requires 'Class::Utils' => 0.03;
 requires 'English' => 0;
 requires 'Error::Pure' => 0.15;

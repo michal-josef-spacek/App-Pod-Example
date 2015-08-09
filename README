@@ -1,72 +1,55 @@
 NAME
-    App::Pod::Example - Base class for pod_example script.
+    pod-example - Script to print or run of example from documentation.
 
 SYNOPSIS
-     use App::Pod::Example;
-     my $app = App::Pod::Example->new(%parameters);
-     $app->run($file_or_module, $section);
+     pod-example [-d flag] [-e] [-h] [-n number] [-p] [-r] [-s section] [--version] pod_file_or_module [argument ..]
 
-METHODS
-    "new(%parameters)"
-             Constructor.
+ARGUMENTS
+    *       "-d flag"
 
-            *       "debug"
+             Turn debug (0/1).
+             Default value is 1.
 
-                     Debug flag. It means print debug messages.
-                     Default value is 1.
+    *       "-e"
 
-            *       "enumerate"
+             Enumerate lines. Only for print mode.
 
-                     Enumerate lines in print output.
-                     Default value is 0.
+    *       "-h"
 
-            *       "print"
+             Print help.
 
-                     Print flag. It means print of example.
-                     Default value is 0.
+    *       "-n number"
 
-            *       "run"
+             Number of example.
+             Default value is nothing.
 
-                     Run flag. It means run of example.
-                     Default value is 1.
+    *       "-p"
 
-    "run($file_or_module, $section, $number_of_example, $args_ar)"
-             Run method.
-             $file_or_module    - File with pod doc or perl module.
-             $section           - Pod section with example. Default value is 'EXAMPLE'.
-             $number_of_example - Number of example. If exists 'EXAMPLE1' and 'EXAMPLE2'
-                                  sections, then this number can be '1' or '2'.
-                                  Default value is nothing.
-             $args_ar           - Reference to array with arguments for 'run' mode.
-             Returns undef.
+             Print example.
 
-ERRORS
-     new():
-             Cannot process any action.
-             From Class::Utils::set_params():
-                     Unknown parameter '%s'.
+    *       "-r"
+
+             Run example.
+
+    *       "-s section"
+
+             Use section.
+             Default value is EXAMPLE.
+
+    *       "--version"
+
+             Print version of script.
+
+    *       "pod_file_or_module"
+
+             Perl POD file or module.
+
+    *       "argument .."
+
+             Example arguments.
 
 EXAMPLE
-     # Pragmas.
-     use strict;
-     use warnings;
-
-     # Modules.
-     use App::Pod::Example;
-
-     # Run.
-     App::Pod::Example->new(
-             'enumerate' => 1,
-             'print' => 1,
-             'run' => 1,
-     )->run('Pod::Example');
-
-CAVEATS
-    Examples with die() cannot process, because returns bad results.
-
-DEPENDENCIES
-    Class::Utils, English, Error::Pure, File::Temp, IO::Barf, Pod::Example,
-    Readonly.
+     pod-example -p -r Class::Utils
 
 REPOSITORY
     <https://github.com/tupinek/App-Pod-Example>

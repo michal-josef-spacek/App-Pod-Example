@@ -74,35 +74,46 @@ pod-example - Script to print or run of example from documentation.
 
 =item * C<-d flag>
 
-Turn debug (0/1) (default is 1).
+ Turn debug (0/1).
+ Default value is 1.
 
 =item * C<-e>
 
-Enumerate lines. Only for print mode.
+ Enumerate lines. Only for print mode.
 
 =item * C<-h>
 
-Print help.
+ Print help.
 
 =item * C<-n number>
 
-Number of example (default is nothing).
+ Number of example.
+ Default value is nothing.
 
 =item * C<-p>
 
-Print example.
+ Print example.
 
 =item * C<-r>
 
-Run example.
+ Run example.
 
 =item * C<-s section>
 
-Use section (default EXAMPLE).
+ Use section.
+ Default value is EXAMPLE.
 
 =item * C<--version>
 
-Print version of script.
+ Print version of script.
+
+=item * C<pod_file_or_module>
+
+ Perl POD file or module.
+
+=item * C<argument ..>
+
+ Example arguments.
 
 =back
 

@@ -21,7 +21,7 @@ my $opts_hr = {
 	'r' => 0,
 	's' => 'EXAMPLE',
 };
-if (! getopts('d:ehn:prs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'} 
+if (! getopts('d:ehn:prs:', $opts_hr) || @ARGV < 1 || $opts_hr->{'h'}
 	|| (! $opts_hr->{'p'} && ! $opts_hr->{'r'})) {
 
 	print STDERR "Usage: $0 [-d flag] [-e] [-h] [-n number] [-p] [-r]\n".

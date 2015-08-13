@@ -9,7 +9,8 @@ TODO
 Tohle je snad opraveno?
 17. Kdyz ma priklad argumenty, tak v interaktivnim modu nabidnout vlozeni
     hodnot. Interaktivni mod by mel byt default.
-18.
+18. Proc tady mam zaroven IO::CaptureOutput a Test::Output?
+19.
 
 Applied
 =======

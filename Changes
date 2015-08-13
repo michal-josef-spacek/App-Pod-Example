@@ -3,6 +3,7 @@
  - Improve documentation of script.
  - Remove trailing whitespace.
  - Rewrite README file to doc from script.
+ - Rewrite code from script to library.
  - Update Module::Install to 1.16 version.
  - Update LICENSE AND COPYRIGHT section in doc.
  - Update copyright years.

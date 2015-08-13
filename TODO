@@ -10,7 +10,8 @@ Tohle je snad opraveno?
 17. Kdyz ma priklad argumenty, tak v interaktivnim modu nabidnout vlozeni
     hodnot. Interaktivni mod by mel byt default.
 18. Proc tady mam zaroven IO::CaptureOutput a Test::Output?
-19.
+19. Problem s IO::CaptureOutput::capture v 04-new.t testu.
+20.
 
 Applied
 =======

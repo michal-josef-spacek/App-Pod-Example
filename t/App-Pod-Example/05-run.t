@@ -7,7 +7,7 @@ use App::Pod::Example;
 use English qw(-no_match_vars);
 use File::Object;
 use IO::CaptureOutput qw(capture);
-use Test::More 'tests' => 19;
+use Test::More 'tests' => 18;
 use Test::NoWarnings;
 use Test::Warn;
 use Test::Output;
@@ -16,15 +16,17 @@ use Test::Output;
 my $modules_dir = File::Object->new->up->dir('modules');
 
 # Test.
-my $obj = App::Pod::Example->new(
-	'debug' => 0,
+@ARGV = (
+	'-d' => 0,
+	'-r',
+	$modules_dir->file('Ex1.pm')->s,
 );
 my $right_ret = <<'END';
 Foo.
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex1.pm')->s);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -32,7 +34,10 @@ stdout_is(
 );
 
 # Test.
-$obj = App::Pod::Example->new;
+@ARGV = (
+	'-r',
+	$modules_dir->file('Ex1.pm')->s,
+);
 $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
@@ -41,7 +46,7 @@ Foo.
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex1.pm')->s);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -49,6 +54,10 @@ stdout_is(
 );
 
 # Test.
+@ARGV = (
+	'-r',
+	$modules_dir->file('Ex2.pm')->s,
+);
 $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
@@ -56,25 +65,33 @@ $right_ret = <<'END';
 END
 my ($stderr, $stdout);
 capture sub {
-	$obj->run($modules_dir->file('Ex2.pm')->s);
+	App::Pod::Example->new->run;
 	return;
 } => \$stdout, \$stderr;
 is($stdout, $right_ret, 'Header on example with die().');
 like($stderr, qr{^Error\. at .* line 6\.$}, 'Example with die().');
 
 # Test.
+@ARGV = (
+	'-r',
+	$modules_dir->file('Ex3.pm')->s,
+);
 ($stderr, $stdout) = (undef, undef);
 capture sub {
-	$obj->run($modules_dir->file('Ex3.pm')->s);
+	App::Pod::Example->new->run;
 	return;
 } => \$stdout, \$stderr;
 is($stdout, $right_ret, 'Header on example with Carp::croak().');
 like($stderr, qr{^Error\. at .* line 9\.$}, 'Example with Carp::croak().');
 
 # Test.
+@ARGV = (
+	'-r',
+	$modules_dir->file('Ex4.pm')->s,
+);
 ($stderr, $stdout) = (undef, undef);
 capture sub {
-	$obj->run($modules_dir->file('Ex4.pm')->s);
+	App::Pod::Example->new->run;
 	return;
 } => \$stdout, \$stderr;
 is($stdout, $right_ret, 'Header on example with Error::Pure::Die::err().');
@@ -82,6 +99,10 @@ like($stderr, qr{^Error\. at .* line 9\.$},
 	'Example with Error::Pure::Die::err().');
 
 # Test.
+@ARGV = (
+	'-r',
+	$modules_dir->file('Ex5.pm')->s,
+);
 $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
@@ -90,7 +111,7 @@ Foo.
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex5.pm')->s);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -98,6 +119,11 @@ stdout_is(
 );
 
 # Test.
+@ARGV = (
+	'-n' => 1,
+	'-r',
+	$modules_dir->file('Ex5.pm')->s,
+);
 $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
@@ -106,7 +132,7 @@ Foo.
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex5.pm')->s, 1);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -114,6 +140,11 @@ stdout_is(
 );
 
 # Test.
+@ARGV = (
+	'-n' => 2,
+	'-r',
+	$modules_dir->file('Ex5.pm')->s,
+);
 $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
@@ -122,7 +153,7 @@ Bar.
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex5.pm')->s, 2);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -130,6 +161,11 @@ stdout_is(
 );
 
 # Test.
+@ARGV = (
+	'-r',
+	'-s' => 'EXAMPLE',
+	$modules_dir->file('Ex6.pm')->s,
+);
 $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
@@ -139,8 +175,7 @@ Argument #1:
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex6.pm')->s, 'EXAMPLE', undef,
-			'Foo');
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -148,24 +183,12 @@ stdout_is(
 );
 
 # Test.
-$right_ret = <<'END';
-#-------------------------------------------------------------------------------
-# Example output
-#-------------------------------------------------------------------------------
-Argument #0: 
-Argument #1: 
-END
-stdout_is(
-	sub {
-		$obj->run($modules_dir->file('Ex6.pm')->s, 'EXAMPLE', undef,
-			[]);
-		return;
-	},
-	$right_ret,
-	'Example Ex6 EXAMPLE with arguments - arguments as blank array.',
+@ARGV = (
+	'-r',
+	'-s' => 'EXAMPLE',
+	$modules_dir->file('Ex6.pm')->s,
+	'Foo', 'Bar',
 );
-
-# Test.
 $right_ret = <<'END';
 #-------------------------------------------------------------------------------
 # Example output
@@ -175,8 +198,7 @@ Argument #1: Bar
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex6.pm')->s, 'EXAMPLE', undef,
-			['Foo', 'Bar']);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -184,9 +206,9 @@ stdout_is(
 );
 
 # Test.
-$obj = App::Pod::Example->new(
-	'print' => 1,
-	'run' => 0,
+@ARGV = (
+	'-p',
+	$modules_dir->file('Ex1.pm')->s,
 );
 $right_ret = <<'END';
 #-------------------------------------------------------------------------------
@@ -201,7 +223,7 @@ print "Foo.\n";
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex1.pm')->s);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -209,10 +231,10 @@ stdout_is(
 );
 
 # Test.
-$obj = App::Pod::Example->new(
-	'debug' => 0,
-	'print' => 1,
-	'run' => 0,
+@ARGV = (
+	'-d' => 0,
+	'-p',
+	$modules_dir->file('Ex1.pm')->s,
 );
 $right_ret = <<'END';
 # Pragmas.
@@ -224,7 +246,7 @@ print "Foo.\n";
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex1.pm')->s);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -232,12 +254,17 @@ stdout_is(
 );
 
 # Test.
+@ARGV = (
+	'-n' => 100,
+	'-r',
+	$modules_dir->file('Ex1.pm')->s,
+);
 $right_ret = <<'END';
 No code.
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex1.pm')->s, 100);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,
@@ -245,11 +272,11 @@ stdout_is(
 );
 
 # Test.
-$obj = App::Pod::Example->new(
-	'debug' => 0,
-	'enumerate' => 1,
-	'print' => 1,
-	'run' => 0,
+@ARGV = (
+	'-d' => 0,
+	'-e',
+	'-p',
+	$modules_dir->file('Ex1.pm')->s,
 );
 $right_ret = <<'END';
 1: # Pragmas.
@@ -261,7 +288,7 @@ $right_ret = <<'END';
 END
 stdout_is(
 	sub {
-		$obj->run($modules_dir->file('Ex1.pm')->s);
+		App::Pod::Example->new->run;
 		return;
 	},
 	$right_ret,

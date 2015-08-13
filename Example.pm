@@ -9,6 +9,7 @@ use Class::Utils qw(set_params);
 use English qw(-no_match_vars);
 use Error::Pure qw(err);
 use File::Temp qw(tempfile);
+use Getopt::Std;
 use IO::Barf qw(barf);
 use Pod::Example qw(get);
 use Readonly;
@@ -29,24 +30,48 @@ sub new {
 	# Create object.
 	my $self = bless {}, $class;
 
-	# Debug.
-	$self->{'debug'} = 1;
-
-	# Enumerate lines.
-	$self->{'enumerate'} = 0;
-
-	# Print.
-	$self->{'print'} = 0;
-
-	# Run.
-	$self->{'run'} = 1;
-
 	# Process params.
 	set_params($self, @params);
 
+	# Process arguments.
+	$self->{'_opts'} = {
+		'd' => 1,
+		'h' => 0,
+		'e' => 0,
+		'n' => undef,
+		'p' => 0,
+		'r' => 0,
+		's' => 'EXAMPLE',
+	};
+	if (! getopts('d:ehn:prs:', $self->{'_opts'}) || @ARGV < 1
+		|| $self->{'_opts'}->{'h'}) {
+
+		print STDERR "Usage: $0 [-d flag] [-e] [-h] [-n number] ".
+			"[-p] [-r]\n\t[-s section] [--version] ".
+			"pod_file_or_module [argument ..]\n\n";
+		print STDERR "\t-d flag\t\tTurn debug (0/1) (default is 1).\n";
+		print STDERR "\t-e\t\tEnumerate lines. Only for print mode.\n";
+		print STDERR "\t-h\t\tHelp.\n";
+		print STDERR "\t-n number\tNumber of example (default is ".
+			"nothing).\n";
+		print STDERR "\t-p\t\tPrint example.\n";
+		print STDERR "\t-r\t\tRun example.\n";
+		print STDERR "\t-s section\tUse section (default EXAMPLE).\n";
+		print STDERR "\t--version\tPrint version.\n";
+		exit 1;
+	}
+	$self->{'_pod_file'} = shift @ARGV;
+	$self->{'_args'} = \@ARGV;
+	$self->{'_debug'} = $self->{'_opts'}->{'d'};
+	$self->{'_enumerate'} = $self->{'_opts'}->{'e'};
+	$self->{'_number'} = $self->{'_opts'}->{'n'};
+	$self->{'_print'} = $self->{'_opts'}->{'p'};
+	$self->{'_run'} = $self->{'_opts'}->{'r'};
+	$self->{'_section'} = $self->{'_opts'}->{'s'};
+
 	# No action.
-	if (! $self->{'print'} && ! $self->{'run'}) {
-		err 'Cannot process any action.';
+	if (! $self->{'_print'} && ! $self->{'_run'}) {
+		err 'Cannot process any action (-p or -r options).';
 	}
 
 	# Object.
@@ -55,10 +80,10 @@ sub new {
 
 # Run.
 sub run {
-	my ($self, $file_or_module, $section, $number_of_example, $args_ar) = @_;
+	my $self = shift;
 
 	# Get example code.
-	my $code = get($file_or_module, $section, $number_of_example);
+	my $code = get($self->{'_pod_file'}, $self->{'_section'}, $self->{'_number'});
 
 	# No code.
 	if (! defined $code) {
@@ -67,11 +92,11 @@ sub run {
 	}
 
 	# Print.
-	if ($self->{'print'}) {
-		if ($self->{'debug'}) {
+	if ($self->{'_print'}) {
+		if ($self->{'_debug'}) {
 			_debug('Example source');
 		}
-		if ($self->{'enumerate'}) {
+		if ($self->{'_enumerate'}) {
 			my @lines = split "\n", $code;
 			my $count = 1;
 			foreach my $line (@lines) {
@@ -84,17 +109,15 @@ sub run {
 	}
 
 	# Run.
-	if ($self->{'run'}) {
-		if ($self->{'debug'}) {
+	if ($self->{'_run'}) {
+		if ($self->{'_debug'}) {
 			_debug('Example output');
 		}
 		my (undef, $tempfile) = tempfile();
 		barf($tempfile, $code);
 		my $args = $EMPTY_STR;
-		if (defined $args_ar && ref $args_ar eq 'ARRAY'
-			&& @{$args_ar}) {
-
-			$args = '"'.(join '" "', @{$args_ar}).'"';
+		if (@{$self->{'_args'}}) {
+			$args = '"'.(join '" "', @{$self->{'_args'}}).'"';
 		}
 		system "$EXECUTABLE_NAME $tempfile $args";
 		unlink $tempfile;
@@ -127,50 +150,20 @@ App::Pod::Example - Base class for pod_example script.
 =head1 SYNOPSIS
 
  use App::Pod::Example;
- my $app = App::Pod::Example->new(%parameters);
- $app->run($file_or_module, $section);
+ my $app = App::Pod::Example->new;
+ $app->run;
 
 =head1 METHODS
 
 =over 8
 
-=item C<new(%parameters)>
+=item C<new()>
 
  Constructor.
 
-=over 8
-
-=item * C<debug>
-
- Debug flag. It means print debug messages.
- Default value is 1.
-
-=item * C<enumerate>
-
- Enumerate lines in print output.
- Default value is 0.
-
-=item * C<print>
-
- Print flag. It means print of example.
- Default value is 0.
-
-=item * C<run>
-
- Run flag. It means run of example.
- Default value is 1.
-
-=back
-
-=item C<run($file_or_module, $section, $number_of_example, $args_ar)>
+=item C<run()>
 
  Run method.
- $file_or_module    - File with pod doc or perl module.
- $section           - Pod section with example. Default value is 'EXAMPLE'.
- $number_of_example - Number of example. If exists 'EXAMPLE1' and 'EXAMPLE2'
-                      sections, then this number can be '1' or '2'.
-                      Default value is nothing.
- $args_ar           - Reference to array with arguments for 'run' mode.
  Returns undef.
 
 =back
@@ -191,12 +184,18 @@ App::Pod::Example - Base class for pod_example script.
  # Modules.
  use App::Pod::Example;
 
+ # Arguments.
+ @ARGV = (
+         '-e',
+         '-p',
+         'App::Pod::Example',
+ );
+
  # Run.
- App::Pod::Example->new(
-         'enumerate' => 1,
-         'print' => 1,
-         'run' => 1,
- )->run('Pod::Example');
+ App::Pod::Example->new->run;
+
+ # Output:
+ # -- this code with enumerated lines --
 
 =head1 CAVEATS
 
@@ -208,6 +207,7 @@ L<Class::Utils>,
 L<English>,
 L<Error::Pure>,
 L<File::Temp>,
+L<Getopt::Std>,
 L<IO::Barf>,
 L<Pod::Example>,
 L<Readonly>.

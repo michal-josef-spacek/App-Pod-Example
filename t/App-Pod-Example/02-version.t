@@ -8,4 +8,4 @@ use Test::More 'tests' => 2;
 use Test::NoWarnings;
 
 # Test.
-is($App::Pod::Example::VERSION, 0.15, 'Version.');
+is($App::Pod::Example::VERSION, 0.16, 'Version.');

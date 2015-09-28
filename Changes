@@ -1,6 +1,7 @@
 0.15
  - Fix script name in doc.
  - Improve documentation of script.
+ - Move author tests to xt/ directory.
  - Remove trailing whitespace.
  - Rewrite README file to doc from script.
  - Rewrite code from script to library.

@@ -34,6 +34,7 @@ resources 'repository' => 'git://github.com/tupinek/App-Pod-Example';
 test_requires 'English' => 0;
 test_requires 'File::Object' => 0.05;
 test_requires 'IO::CaptureOutput' => 0;
+test_requires 'Readonly' => 0;
 test_requires 'Test::More' => 0;
 test_requires 'Test::NoWarnings' => 0;
 test_requires 'Test::Output' => 1.02;

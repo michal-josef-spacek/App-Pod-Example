@@ -1,5 +1,6 @@
 0.15
  - Fix script name in doc.
+ - Fix test requires.
  - Improve documentation of script.
  - Move author tests to xt/ directory.
  - Remove trailing whitespace.

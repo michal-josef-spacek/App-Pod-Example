@@ -9,8 +9,8 @@ use File::Object;
 use IO::CaptureOutput qw(capture);
 use Test::More 'tests' => 18;
 use Test::NoWarnings;
-use Test::Warn;
 use Test::Output;
+use Test::Warn;
 
 # Modules dir.
 my $modules_dir = File::Object->new->up->dir('modules');

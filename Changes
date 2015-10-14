@@ -1,4 +1,5 @@
 0.16
+ - Fix App::Pod::Example NAME section in doc.
 
 0.15 2015-09-28T03:01:27+02:00
  - Fix script name in doc.

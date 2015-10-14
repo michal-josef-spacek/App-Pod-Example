@@ -145,7 +145,7 @@ __END__
 
 =head1 NAME
 
-App::Pod::Example - Base class for pod_example script.
+App::Pod::Example - Base class for pod-example script.
 
 =head1 SYNOPSIS
 

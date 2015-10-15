@@ -1,5 +1,6 @@
 language: perl
-perl:
-  - "5.6.0"
-before_install:
-  - cpanm Class::Utils English Error::Pure File::Temp IO::Barf Pod::Example Readonly
+matrix:
+  include:
+    - perl: "5.20"
+    - perl: "5.6.0"
+sudo: false

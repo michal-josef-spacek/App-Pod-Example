@@ -8,5 +8,4 @@ matrix:
     - perl: "5.12"
     - perl: "5.10"
     - perl: "5.8"
-    - perl: "5.6"
 sudo: false

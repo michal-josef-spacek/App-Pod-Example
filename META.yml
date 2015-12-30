@@ -33,6 +33,7 @@ requires:
   English: 0
   Error::Pure: 0.15
   File::Temp: 0
+  Getopt::Std: 0
   IO::Barf: 0.04
   Pod::Example: 0.03
   Readonly: 0

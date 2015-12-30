@@ -23,6 +23,7 @@ requires 'Class::Utils' => 0.03;
 requires 'English' => 0;
 requires 'Error::Pure' => 0.15;
 requires 'File::Temp' => 0;
+requires 'Getopt::Std' => 0;
 requires 'IO::Barf' => 0.04;
 requires 'Pod::Example' => 0.03;
 requires 'Readonly' => 0;

@@ -17,6 +17,7 @@ author_requires 'Test::Pod::Coverage' => 0;
 install_script 'bin/pod-example';
 license 'bsd';
 name 'App-Pod-Example';
+perl_version 5.006;
 readme_from 'bin/pod-example';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0.03;
@@ -27,7 +28,6 @@ requires 'Getopt::Std' => 0;
 requires 'IO::Barf' => 0.04;
 requires 'Pod::Example' => 0.03;
 requires 'Readonly' => 0;
-requires 'perl' => '5.6.0';
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 	'?Name=App-Pod-Example';
 resources 'homepage' => 'https://github.com/tupinek/App-Pod-Example';

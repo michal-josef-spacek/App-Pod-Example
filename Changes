@@ -1,5 +1,6 @@
 0.17
  - Add missing dependency for Getopt::Std.
+ - Fix minimal Perl version in Makefile.PL.
  - Update copyright years.
 
 0.16 2015-10-15T13:57:30+02:00

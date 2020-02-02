@@ -214,7 +214,7 @@ L<Readonly>.
 
 =head1 REPOSITORY
 
-L<https://github.com/tupinek/App-Pod-Example>
+L<https://github.com/michal-josef-spacek/App-Pod-Example>
 
 =head1 AUTHOR
 

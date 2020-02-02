@@ -52,7 +52,7 @@ EXAMPLE
      pod-example -p -r Class::Utils
 
 REPOSITORY
-    <https://github.com/tupinek/App-Pod-Example>
+    <https://github.com/michal-josef-spacek/App-Pod-Example>
 
 AUTHOR
     Michal Špaček <mailto:skim@cpan.org>

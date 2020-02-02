@@ -1,6 +1,7 @@
 0.17
  - Add missing dependency for Getopt::Std.
  - Change default value of debug to disable.
+ - Fix Makefile.PL fails with no '.' in @INC.
  - Fix minimal Perl version in Makefile.PL.
  - Update Module::Install to 1.19 version.
  - Update author github username.

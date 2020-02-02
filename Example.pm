@@ -32,7 +32,7 @@ sub new {
 
 	# Process arguments.
 	$self->{'_opts'} = {
-		'd' => 1,
+		'd' => 0,
 		'h' => 0,
 		'e' => 0,
 		'n' => undef,
@@ -147,6 +147,7 @@ App::Pod::Example - Base class for pod-example script.
 =head1 SYNOPSIS
 
  use App::Pod::Example;
+
  my $app = App::Pod::Example->new;
  $app->run;
 

@@ -37,7 +37,7 @@ pod-example - Script to print or run of example from documentation.
 =item * C<-d flag>
 
  Turn debug (0/1).
- Default value is 1.
+ Default value is 0.
 
 =item * C<-e>
 

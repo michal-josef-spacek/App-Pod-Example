@@ -33,6 +33,7 @@ stdout_is(
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-r',
 	$modules_dir->file('Ex1.pm')->s,
 );
@@ -53,6 +54,7 @@ stdout_is(
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-r',
 	$modules_dir->file('Ex2.pm')->s,
 );
@@ -71,6 +73,7 @@ like($stderr, qr{^Error\. at .* line 5\.$}, 'Example with die().');
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-r',
 	$modules_dir->file('Ex3.pm')->s,
 );
@@ -84,6 +87,7 @@ like($stderr, qr{^Error\. at .* line 7\.$}, 'Example with Carp::croak().');
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-r',
 	$modules_dir->file('Ex4.pm')->s,
 );
@@ -98,6 +102,7 @@ like($stderr, qr{^Error\. at .* line 7\.$},
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-r',
 	$modules_dir->file('Ex5.pm')->s,
 );
@@ -118,6 +123,7 @@ stdout_is(
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-n' => 1,
 	'-r',
 	$modules_dir->file('Ex5.pm')->s,
@@ -139,6 +145,7 @@ stdout_is(
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-n' => 2,
 	'-r',
 	$modules_dir->file('Ex5.pm')->s,
@@ -160,6 +167,7 @@ stdout_is(
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-r',
 	'-s' => 'EXAMPLE',
 	$modules_dir->file('Ex6.pm')->s,
@@ -182,6 +190,7 @@ stdout_is(
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-r',
 	'-s' => 'EXAMPLE',
 	$modules_dir->file('Ex6.pm')->s,
@@ -205,6 +214,7 @@ stdout_is(
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-p',
 	$modules_dir->file('Ex1.pm')->s,
 );
@@ -251,6 +261,7 @@ stdout_is(
 
 # Test.
 @ARGV = (
+	'-d' => 1,
 	'-n' => 100,
 	'-r',
 	$modules_dir->file('Ex1.pm')->s,

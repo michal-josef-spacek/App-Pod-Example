@@ -1,13 +1,10 @@
 #!/usr/bin/env perl
 
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use App::Pod::Example;
 
-# Version.
 our $VERSION = 0.17;
 
 # Run.

@@ -1,10 +1,8 @@
 package App::Pod::Example;
 
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use Class::Utils qw(set_params);
 use English qw(-no_match_vars);
 use Error::Pure qw(err);
@@ -20,7 +18,6 @@ Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $HASH => q{#};
 Readonly::Scalar my $SPACE => q{ };
 
-# Version.
 our $VERSION = 0.17;
 
 # Constructor.
@@ -177,11 +174,9 @@ App::Pod::Example - Base class for pod-example script.
 
 =head1 EXAMPLE
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use App::Pod::Example;
 
  # Arguments.

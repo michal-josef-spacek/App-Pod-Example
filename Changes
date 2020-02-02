@@ -5,6 +5,7 @@
  - Fix minimal Perl version in Makefile.PL.
  - Update Module::Install to 1.19 version.
  - Update author github username.
+ - Update author name.
  - Update copyright years.
 
 0.16 2015-10-15T13:57:30+02:00

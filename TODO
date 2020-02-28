@@ -11,7 +11,10 @@ Tohle je snad opraveno?
     hodnot. Interaktivni mod by mel byt default.
 18. Proc tady mam zaroven IO::CaptureOutput a Test::Output?
 19. Problem s IO::CaptureOutput::capture v 04-new.t testu.
-20.
+20. Test pro spatny pocet argumentu skriptu.
+21. Test pro help.
+22. Test pro neplatny prepinac.
+23.
 
 Applied
 =======

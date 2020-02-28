@@ -153,18 +153,21 @@ App::Pod::Example - Base class for pod-example script.
 
 =head1 METHODS
 
-=over 8
+=head2 C<new>
 
-=item C<new()>
+ my $app = App::Pod::Example->new;
 
- Constructor.
+Constructor.
 
-=item C<run()>
+Returns object.
 
- Run method.
- Returns undef.
+=head2 C<run>
 
-=back
+ $app->run;
+
+Run method.
+
+Returns undef.
 
 =head1 ERRORS
 
@@ -220,8 +223,9 @@ L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
- © 2011-2020 Michal Josef Špaček
- BSD 2-Clause License
+© 2011-2020 Michal Josef Špaček
+
+BSD 2-Clause License
 
 =head1 VERSION
 

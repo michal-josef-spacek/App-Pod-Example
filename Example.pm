@@ -57,7 +57,7 @@ sub new {
 		print STDERR "\t--version\tPrint version.\n";
 		exit 1;
 	}
-	$self->{'_pod_file'} = shift @ARGV;
+	$self->{'_pod_file_or_module'} = shift @ARGV;
 	$self->{'_args'} = \@ARGV;
 	$self->{'_debug'} = $self->{'_opts'}->{'d'};
 	$self->{'_enumerate'} = $self->{'_opts'}->{'e'};
@@ -80,7 +80,7 @@ sub run {
 	my $self = shift;
 
 	# Get example code.
-	my $code = get($self->{'_pod_file'}, $self->{'_section'}, $self->{'_number'});
+	my $code = get($self->{'_pod_file_or_module'}, $self->{'_section'}, $self->{'_number'});
 
 	# No code.
 	if (! defined $code) {

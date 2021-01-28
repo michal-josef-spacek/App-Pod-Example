@@ -158,7 +158,7 @@ App::Pod::Example - Base class for pod-example script.
 
 Constructor.
 
-Returns object.
+Returns instance of object.
 
 =head2 C<run>
 

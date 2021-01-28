@@ -5,7 +5,7 @@ use warnings;
 
 use App::Pod::Example;
 
-our $VERSION = 0.19;
+our $VERSION = 0.20;
 
 # Run.
 App::Pod::Example->new->run;
@@ -101,6 +101,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.19
+0.20
 
 =cut

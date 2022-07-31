@@ -1,4 +1,5 @@
 0.20
+ - Add name for example.
  - Update copyright years.
  - Update dependency for Pod::Example to 0.12 (with support for filenames).
 

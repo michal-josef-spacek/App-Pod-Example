@@ -177,6 +177,8 @@ Returns undef.
 
 =head1 EXAMPLE
 
+=for comment filename=print_enumerated.pl
+
  use strict;
  use warnings;
 

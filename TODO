@@ -14,7 +14,9 @@ Tohle je snad opraveno?
 20. Test pro spatny pocet argumentu skriptu.
 21. Test pro help.
 22. Test pro neplatny prepinac.
-23.
+23. Implementovat ulozeni jako pojmenovany soubor?
+24. Presunout parsovani argumentu s new do run.
+25.
 
 Applied
 =======

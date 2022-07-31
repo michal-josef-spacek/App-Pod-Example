@@ -1,5 +1,6 @@
 0.20
  - Update copyright years.
+ - Update dependency for Pod::Example to 0.12 (with support for filenames).
 
 0.19 2021-01-28T11:13:49+01:00
  - Fix bugtracker.

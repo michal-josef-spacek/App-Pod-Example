@@ -85,7 +85,7 @@ sub run {
 	# No code.
 	if (! defined $code) {
 		print "No code.\n";
-		return;
+		return 0;
 	}
 
 	# Print.
@@ -120,7 +120,7 @@ sub run {
 		unlink $tempfile;
 	}
 
-	return;
+	return 0;
 }
 
 sub _debug {

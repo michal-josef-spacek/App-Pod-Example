@@ -1,5 +1,6 @@
 0.20
  - Add name for example.
+ - Rewrite helper library to return exit code.
  - Rewrite tests from IO::CaptureOutput to Capture::Tiny.
  - Update copyright years.
  - Update dependency for Pod::Example to 0.12 (with support for filenames).

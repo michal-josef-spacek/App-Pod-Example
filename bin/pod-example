@@ -8,7 +8,7 @@ use App::Pod::Example;
 our $VERSION = 0.20;
 
 # Run.
-App::Pod::Example->new->run;
+exit App::Pod::Example->new->run;
 
 # Print version.
 sub VERSION_MESSAGE {

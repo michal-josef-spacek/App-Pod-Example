@@ -2,9 +2,9 @@ use strict;
 use warnings;
 
 use App::Pod::Example;
+use Capture::Tiny qw(capture);
 use English qw(-no_match_vars);
 use File::Object;
-use IO::CaptureOutput qw(capture);
 use Test::More 'tests' => 18;
 use Test::NoWarnings;
 use Test::Output;
@@ -63,11 +63,9 @@ $right_ret = <<'END';
 # Example output
 #-------------------------------------------------------------------------------
 END
-my ($stderr, $stdout);
-capture sub {
+my ($stdout, $stderr) = capture {
 	App::Pod::Example->new->run;
-	return;
-} => \$stdout, \$stderr;
+};
 is($stdout, $right_ret, 'Header on example with die().');
 like($stderr, qr{^Error\. at .* line 5\.$}, 'Example with die().');
 
@@ -77,11 +75,9 @@ like($stderr, qr{^Error\. at .* line 5\.$}, 'Example with die().');
 	'-r',
 	$modules_dir->file('Ex3.pm')->s,
 );
-($stderr, $stdout) = (undef, undef);
-capture sub {
+($stdout, $stderr) = capture {
 	App::Pod::Example->new->run;
-	return;
-} => \$stdout, \$stderr;
+};
 is($stdout, $right_ret, 'Header on example with Carp::croak().');
 like($stderr, qr{^Error\. at .* line 7\.$}, 'Example with Carp::croak().');
 
@@ -91,11 +87,9 @@ like($stderr, qr{^Error\. at .* line 7\.$}, 'Example with Carp::croak().');
 	'-r',
 	$modules_dir->file('Ex4.pm')->s,
 );
-($stderr, $stdout) = (undef, undef);
-capture sub {
+($stdout, $stderr) = capture {
 	App::Pod::Example->new->run;
-	return;
-} => \$stdout, \$stderr;
+};
 is($stdout, $right_ret, 'Header on example with Error::Pure::Die::err().');
 like($stderr, qr{^Error\. at .* line 7\.$},
 	'Example with Error::Pure::Die::err().');

@@ -2,9 +2,9 @@ use strict;
 use warnings;
 
 use App::Pod::Example;
+use Capture::Tiny qw(capture);
 use English qw(-no_match_vars);
 use Error::Pure::Utils qw(clean);
-use IO::CaptureOutput qw(capture);
 use Readonly;
 use Test::More 'tests' => 5;
 use Test::NoWarnings;
@@ -42,7 +42,7 @@ clean();
 
 # Test.
 SKIP: {
-skip "Problem with IO::CaptureOutput::capture", 1;
+skip "Problem with exit", 1;
 my $right_ret = <<'END';
 Usage: t/App-Pod-Example/04-new.t [-d flag] [-e] [-h] [-n number] [-p] [-r]
         [-s section] [--version] pod_file_or_module [argument ..]
@@ -56,10 +56,10 @@ Usage: t/App-Pod-Example/04-new.t [-d flag] [-e] [-h] [-n number] [-p] [-r]
         -s section      Use section (default EXAMPLE).
         --version       Print version.
 END
-my ($stderr, $stdout);
-my $obj = capture sub {
-	return App::Pod::Example->new;
-} => \$stdout, \$stderr;
+my $obj;
+my ($stdout, $stderr) = capture {
+	$obj = App::Pod::Example->new;
+};
 isa_ok($obj, 'App::Pod::Example');
 is($stdout, $EMPTY_STR, 'No stdout.');
 like($stderr, $right_ret, 'Print help.');

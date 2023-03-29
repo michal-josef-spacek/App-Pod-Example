@@ -1,5 +1,6 @@
 0.20
  - Add name for example.
+ - Move code from constructor to run(). Fix and improve tests.
  - Rewrite helper library to return exit code.
  - Rewrite tests from IO::CaptureOutput to Capture::Tiny.
  - Update copyright years.

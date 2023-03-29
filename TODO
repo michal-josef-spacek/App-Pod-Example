@@ -9,13 +9,10 @@ TODO
 Tohle je snad opraveno?
 17. Kdyz ma priklad argumenty, tak v interaktivnim modu nabidnout vlozeni
     hodnot. Interaktivni mod by mel byt default.
-18. Proc tady mam zaroven IO::CaptureOutput a Test::Output?
-19. Problem s IO::CaptureOutput::capture v 04-new.t testu.
+18. Proc tady mam zaroven Capture::Tiny a Test::Output?
 20. Test pro spatny pocet argumentu skriptu.
-21. Test pro help.
 22. Test pro neplatny prepinac.
 23. Implementovat ulozeni jako pojmenovany soubor?
-24. Presunout parsovani argumentu s new do run.
 25.
 
 Applied
@@ -70,3 +67,13 @@ OK [20131108] skim
 
 15. Vstupni argumenty pro priklady?
 OK [20140731] skim
+
+19. Problem s IO::CaptureOutput::capture v 04-new.t testu.
+Vyreseno vracenim exit code
+OK [20230329] skim
+
+21. Test pro help.
+OK [20230329] skim
+
+24. Presunout parsovani argumentu s new do run.
+OK [20230329] skim

@@ -30,6 +30,14 @@ sub new {
 	# Process params.
 	set_params($self, @params);
 
+	# Object.
+	return $self;
+}
+
+# Run.
+sub run {
+	my $self = shift;
+
 	# Process arguments.
 	$self->{'_opts'} = {
 		'd' => 0,
@@ -55,7 +63,7 @@ sub new {
 		print STDERR "\t-r\t\tRun example.\n";
 		print STDERR "\t-s section\tUse section (default EXAMPLE).\n";
 		print STDERR "\t--version\tPrint version.\n";
-		exit 1;
+		return 1;
 	}
 	$self->{'_pod_file_or_module'} = shift @ARGV;
 	$self->{'_args'} = \@ARGV;
@@ -70,14 +78,6 @@ sub new {
 	if (! $self->{'_print'} && ! $self->{'_run'}) {
 		err 'Cannot process any action (-p or -r options).';
 	}
-
-	# Object.
-	return $self;
-}
-
-# Run.
-sub run {
-	my $self = shift;
 
 	# Get example code.
 	my $code = get($self->{'_pod_file_or_module'}, $self->{'_section'}, $self->{'_number'});

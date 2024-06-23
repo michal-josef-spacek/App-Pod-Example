@@ -48,8 +48,9 @@ sub run {
 		'r' => 0,
 		's' => 'EXAMPLE',
 	};
-	if (! getopts('d:ehn:prs:', $self->{'_opts'}) || @ARGV < 1
-		|| $self->{'_opts'}->{'h'}) {
+	if (! getopts('d:ehn:prs:', $self->{'_opts'})
+		|| $self->{'_opts'}->{'h'}
+		|| @ARGV < 1) {
 
 		print STDERR "Usage: $0 [-d flag] [-e] [-h] [-n number] ".
 			"[-p] [-r]\n\t[-s section] [--version] ".

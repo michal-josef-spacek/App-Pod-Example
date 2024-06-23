@@ -1,4 +1,5 @@
 0.21
+ - Finish tests.
  - Fix test dependencies.
  - Rewrite arguments process to more intuitive way.
  - Rewrite run() test to use of help() helper.

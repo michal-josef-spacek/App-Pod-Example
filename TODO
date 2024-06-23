@@ -10,8 +10,6 @@ Tohle je snad opraveno?
 17. Kdyz ma priklad argumenty, tak v interaktivnim modu nabidnout vlozeni
     hodnot. Interaktivni mod by mel byt default.
 18. Proc tady mam zaroven Capture::Tiny a Test::Output?
-20. Test pro spatny pocet argumentu skriptu.
-22. Test pro neplatny prepinac.
 23. Implementovat ulozeni jako pojmenovany soubor?
 25.
 
@@ -77,3 +75,9 @@ OK [20230329] skim
 
 24. Presunout parsovani argumentu s new do run.
 OK [20230329] skim
+
+20. Test pro spatny pocet argumentu skriptu.
+OK [20240623] skim
+
+22. Test pro neplatny prepinac.
+OK [20240623] skim

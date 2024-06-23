@@ -1,6 +1,7 @@
 0.21
  - Fix test dependencies.
  - Update Module::Install to 1.21 version.
+ - Update copyright years.
 
 0.20 2023-03-29T11:56:59+02:00
  - Add name for example.

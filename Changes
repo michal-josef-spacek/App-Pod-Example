@@ -1,5 +1,6 @@
 0.21
  - Fix test dependencies.
+ - Rewrite run() test to use of help() helper.
  - Update Module::Install to 1.21 version.
  - Update copyright years.
 

@@ -19,24 +19,7 @@ my $modules_dir = File::Object->new->up->dir('modules');
 @ARGV = (
 	'-h',
 );
-my $script = abs2rel(File::Object->new->file('04-run.t')->s);
-# XXX Hack for missing abs2rel on Windows.
-if ($OSNAME eq 'MSWin32') {
-	$script =~ s/\\/\//msg;
-}
-my $right_ret = <<"END";
-Usage: $script [-d flag] [-e] [-h] [-n number] [-p] [-r]
-	[-s section] [--version] pod_file_or_module [argument ..]
-
-	-d flag		Turn debug (0/1) (default is 1).
-	-e		Enumerate lines. Only for print mode.
-	-h		Help.
-	-n number	Number of example (default is nothing).
-	-p		Print example.
-	-r		Run example.
-	-s section	Use section (default EXAMPLE).
-	--version	Print version.
-END
+my $right_ret = help();
 stderr_is(
 	sub {
 		App::Pod::Example->new->run;
@@ -339,3 +322,26 @@ stdout_is(
 	'Example with simple print() without debug and with '.
 		'enumerating lines.',
 );
+
+sub help {
+	my $script = abs2rel(File::Object->new->file('04-run.t')->s);
+	# XXX Hack for missing abs2rel on Windows.
+	if ($OSNAME eq 'MSWin32') {
+		$script =~ s/\\/\//msg;
+	}
+	my $help = <<"END";
+Usage: $script [-d flag] [-e] [-h] [-n number] [-p] [-r]
+	[-s section] [--version] pod_file_or_module [argument ..]
+
+	-d flag		Turn debug (0/1) (default is 1).
+	-e		Enumerate lines. Only for print mode.
+	-h		Help.
+	-n number	Number of example (default is nothing).
+	-p		Print example.
+	-r		Run example.
+	-s section	Use section (default EXAMPLE).
+	--version	Print version.
+END
+
+	return $help;
+}

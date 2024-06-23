@@ -32,6 +32,7 @@ resources 'homepage' => 'https://github.com/michal-josef-spacek/App-Pod-Example'
 resources 'repository' => 'git://github.com/michal-josef-spacek/App-Pod-Example';
 test_requires 'Capture::Tiny' => 0;
 test_requires 'English' => 0;
+test_requires 'Error::Pure::Utils' => 0;
 test_requires 'File::Object' => 0.05;
 test_requires 'File::Spec::Functions' => 0;
 test_requires 'Test::More' => 0;

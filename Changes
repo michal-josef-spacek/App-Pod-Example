@@ -1,4 +1,5 @@
 0.22
+ - Fix minimal version of Test::Warn.
 
 0.21 2024-06-23T11:38:18+02:00
  - Finish tests.

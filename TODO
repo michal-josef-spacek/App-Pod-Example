@@ -4,9 +4,6 @@ TODO
 11. Implementovat zobrazeni seznamu example sekci.
 12. Implementovat debug mod, kde budu moci videt chyby pri spatnem eval toho
     kodu.
-13. Opravit problematicky test.
-    http://matrix.cpantesters.org/?dist=App-Pod-Example+0.05
-Tohle je snad opraveno?
 17. Kdyz ma priklad argumenty, tak v interaktivnim modu nabidnout vlozeni
     hodnot. Interaktivni mod by mel byt default.
 18. Proc tady mam zaroven Capture::Tiny a Test::Output?
@@ -81,3 +78,8 @@ OK [20240623] skim
 
 22. Test pro neplatny prepinac.
 OK [20240623] skim
+
+13. Opravit problematicky test.
+    http://matrix.cpantesters.org/?dist=App-Pod-Example+0.05
+Tohle je snad opraveno?
+OK [20240628] skim
